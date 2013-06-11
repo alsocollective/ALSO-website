@@ -38,84 +38,67 @@
 <div id="splash">
 	<!-- <iframe src="static/splash/RLine/index.html"></iframe> -->
 	<h2>The spalsh area</h2>
+	<h2>
 
-	<h3>Something@also.com | 123 456 7890 | 123 Speedina Ave Toronto Canada</h3>
+		<!-- {{allContent.Work}} -->
+		{% for article in allContent.About.artList %}
+			<small style="font-size: 10px;color:#000;">{{article}}</small> <br>
+		{% endfor %}
+
+
+
+	</h2>
+
+	<h3>{% for article in allContent.About.artList %}{% if article.contact %}{{article.text.0.text}}{% endif %}{% endfor %}</h3>
 </div>
 <div id="contentWrapper"><section id="work"><div id="staticBackground">
 			<h1>WORK</h1>
-		</div><div id="sWork"><div id="backgroundAREA" class="hiden">
+		</div><div class="slider" id="sWork"><div id="backgroundAREA" class="hiden">
 					<ul class="navList">
-						<li><a href="#SDA" name="SDA">Sustainable Design Awards</a></li>
-						<li><a href="#urban" name="urban" >Urban Ecologies</a></li>
-						<li><a href="#workProject3" name="workProject3" >locaiton three</a></li>
-						<li><a href="#workProject4" name="workProject4" >locaiton four</a></li>
+						{% for article in allContent.Work.artList %}
+						<li><a href="#{{article.slug}}" name="{{article.slug}}">{{article.title}}</a></li>
+						{% endfor %}
 					</ul>
 				</div><div id="widthOfWork"><a href="#work" id="workButton" class="invisibleButton">
-				</a><article id="SDA" class="project"><div class="page">
-						<img class="backgroundImage" src="/static/img/Projects/SDA/SDA.gif">
-						<h1>SDA</h1>
+				</a>{% for article in allContent.Work.artList %}<article id="{{article.slug}}" class="project">{% for text in article.text %}<div class="page">
+						<img class="backgroundImage" src="/static/img/uploaded/{{text.bkImage}}">
+						<h1>{{article.title}}</h1>
 						<p>
-							The 2013 Sustainable Design Awards (SDA) is an annual, student-lead initiative aiming to inspire post-secondary students to approach their projects through the lens of sustainability (ecological, social, cultural, and economic). Each year, students are invited to develop and submit design projects. Submissions are critiqued by an expert panel of judges, and voted on by peers. There is a cash prize for the winning entry.
-							The concept started with the idea of nature as a closed loop. From there we played with the idea of an infinity symbol that was repeated twice, forming three closed loops—one for each word that define the event’s name. The final mark also makes reference to an ampersand. The identity is flexible and dynamic. We have defined a variety of options for  use with different types of media. We have designed it so that it can change and move on screen. This multitude of variations and perspectives is a direct reflection of the competition.
+							{{text.text}}
 						</p>
-					</div><div class="page">
-						<img src="/static/img/Projects/SDA/SDA1.jpg">
-					</div><div class="page">
-						<img src="/static/img/Projects/SDA/SDA2.jpg">
-					</div><div class="page">
-						<img src="/static/img/Projects/SDA/SDA3.jpg">
-				</div></article><article id="urban" class="project"><div class="page">
-					<img class="backgroundImage" src="/static/img/Projects/Urban Ecologies/Urban Splash.jpg">
-					<h1>Urban Ecologies</h1>
-					<p>
-						Urban environments are complex systems where a multitude of seemingly unrelated components interact. The domain of ecology, which investigates the complex interactions of natural systems, offers a new frame with which to view urban environments through. Not as disparate parts, but as interrelated parts of a whole.Urban Ecologies 2013 as a conference poses questions surrounding this new perspective, bringing together various disciplines to address the following five themes: Regenerating Cities, Visualizing Information, Thinking Systems, Creating Community, and Building Health. The Urban Ecologies 2013 logo attempts to capture this within a seemingly simple mark.
-						Inspired by the visualization studies of Jacques Bertin, the patterns and textures found within architecture and urban planning, and the concept of a Venn diagram. The intent of this identity is to respect the complexity of urban ecology while illustrating the multitude of overlapping domains.
-						The identity brings together five differing patterns that overlap with one and other to form a more complex—yet unified—pattern at the heart of the mark. While the shapes overlap, the patterns of each shape can be seen emerging out of the larger form, while still remaining tightly interwoven within the other patterns.
-						The colour palette of the mark was carefully selected based upon intuitive considerations of the themes. In addition the colours were chosen for their ability to perform separately and collectively within the system.
-						This mark embodies varying levels of detail and form, offering a rich visual metaphor for the conference as a whole.
-						</p>
-					</div><div class="page">
-						<img src="/static/img/Projects/Urban Ecologies/Urban 1.jpg">
-					</div><div class="page">
-						<img src="/static/img/Projects/Urban Ecologies/Urban 2.jpg">
-					</div><div class="page">
-						<img src="/static/img/Projects/Urban Ecologies/Urban 3.jpg">
-				</div></article><article id="workProject3" class="project">
-					<p>
-					some stuff
-					</p>
-					<img src="/static/img/two.jpg">
-				</article><article id="workProject4" class="project">
-					<p>
-					some stuff
-					</p>
-					<img src="/static/img/three.jpg">
-				</article>
+					</div>{% endfor %}{% for image in article.image %}<div class="page">
+						<img src="/static/img/uploaded/{{image.title}}">
+					</div>{% endfor %}</article>{% endfor %}
 			</div>
 		</div>
 	</section><section id="about"><div id="staticBackground">
 			<h1>ABOUT</h1>
-		</div><div id="sAbout"><div id="backgroundAREA" class="hiden">
+		</div><div class="slider" id="sAbout"><div id="backgroundAREA" class="hiden">
 				<ul class="navList">
-					<li><a href="#aboutContact" name="aboutContact">Contact</a></li>
-					<li><a href="#aboutMandate" name="aboutMandate">Mandate</a></li>
-					<li><a href="#aboutHistory" name="aboutHistory">History</a></li>
-					<li><a href="#aboutPeople" name="aboutPeople">People</a></li>
+					{% for article in allContent.About.artList %}
+						<li><a href="#{{article.slug}}" name="{{article.slug}}">{{article.title}}</a></li>
+					{% endfor %}
 				</ul>
-			</div><div id="widthOfWork"><a href="#about" class="invisibleButton" id="workButton"></a><article id="aboutContact" class="project">
+			</div><div id="widthOfWork"><a href="#about" class="invisibleButton" id="workButton"></a>{% for article in allContent.About.artList %}<article id="{{article.slug}}" class="project">{% if article.contact %}
 
 				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/?ie=UTF8&amp;ll=43.641044,-79.421282&amp;spn=0.049877,0.110378&amp;t=m&amp;z=14&amp;output=embed"></iframe>
-				<h1>ContactInfo</h1>
+				<h1>{{article.title}}</h1>
 
-				<p class="positionBottom"> Something@also.com | 123 456 7890 | 123 Speedina Ave Toronto Canada</p>
+				<p class="positionBottom">{{article.text.0.text}}</p>
+				{% elif article.people %}{% for text in article.text %}<div class="page">
 
-			</article><article id="aboutMandate" class="project">
-				<h1>Mandate</h1>
-			</article><article id="aboutHistory" class="project">
-				<h1>History</h1>
-			</article><article id="aboutPeople" class="project">
-				<h1>People</h1>
-			</article></div>
+						<img class="profileImage" src="/static/img/uploaded/{{text.bkImage}}">
+
+						<h1>{{text.title}}</h1>
+
+						<p>{{text.text}}</p>
+
+					</div>{% endfor %}{% else %}
+
+					<h1>{{article.title}}</h1>
+					<p>{{article.text.0.text}}</p>
+
+				{% endif %}</article>{% endfor %}</div>
 		</div>
 	</section><section id="process"><div id="staticBackground">
 			<h1>Process</h1>
@@ -124,7 +107,7 @@
 					<li></li>
 					<li></li>
 				</ul>
-			</div><div id="widthOfWork"><a href="#process" id="workButton">
+			</div><div id="widthOfWork"><a href="#process" id="workButton" class="invisibleButton">
 				</a><article class="project">
 					<h1>this one has one long box</h1>
 			</article></div>
