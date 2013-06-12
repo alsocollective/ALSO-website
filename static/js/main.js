@@ -40,7 +40,7 @@ function setupWork(paerentID){
 	}
 
 	//setting up the scroller and makeing a new instance of it
-	var WorkScroller = new DragDivScroll(slidingElement.id);
+	var WorkScroller = new DragDivScroll(slidingElement.id, "mouseWheelX");
 
 	var isActiveElement = false;
 	var currentActiveIs;
@@ -114,8 +114,10 @@ function setupWork(paerentID){
 				var possibleWidth = findCildWidth(children[a],slideWidth,1);
 				if( possibleWidth ){
 					children[a].style.width = possibleWidth;
+					children[a].style.minWidth = possibleWidth;
 				} else {
 					children[a].style.width = slideWidth;
+					children[a].style.minWidth = slideWidth;
 				}
 				children[a].style.marginLeft = offsetBetween + "px";
 				thisSlideWidth = children[a].offsetWidth;

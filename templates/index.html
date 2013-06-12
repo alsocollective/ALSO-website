@@ -41,10 +41,20 @@
 	<h2>
 
 		<!-- {{allContent.Work}} -->
-		{% for article in allContent.Process.artList.0.insta %}
-			
-				<small style="font-size: 10px;color:#000;">{{article.creator}}</small> <br>
-
+		{% for day in allContent.days %}
+				{% for post in day.posts%}
+					{% if post.tweet%}
+						<small style="font-size: 10px;color:#000;">tweet{{post}}</small> <br>
+					{% elif post.article%}
+						<small style="font-size: 10px;color:#000;">article{{post}}</small> <br>
+					{% elif post.blogPost%}
+						<small style="font-size: 10px;color:#000;">blogPost{{post}}</small> <br>
+					{% elif post.music%}
+						<small style="font-size: 10px;color:#000;">music{{post}}</small> <br>
+					{% elif post.insta%}
+						<small style="font-size: 10px;color:#000;">insta {{post}}</small> <br>
+					{%endif%}
+				{% endfor %}
 		{% endfor %}
 
 
@@ -106,8 +116,7 @@
 			<h1>Process</h1>
 		</div><div id="sProcess"><div id="backgroundAREA" class="hiden">
 				<ul>
-					<li></li>
-					<li></li>
+
 				</ul>
 			</div><div id="widthOfWork"><a href="#process" id="workButton" class="invisibleButton">
 				</a><article class="project">{% for c1, c2 in allContent.Process.artList.0.insta %}<div class="page instaPic">
@@ -133,12 +142,26 @@
 			<h1>Word</h1>
 		</div><div id="sWord"><div id="backgroundAREA" class="hiden">
 				<ul>
-					<li><a href="#" name="#">Location</a></li>
-					<li><a href="#" name="#">Location</a></li>
-					<li><a href="#" name="#">Location</a></li>
 				</ul>
-			</div><div id="widthOfWork"><a href="#word" id="workButton"></a><article class="project">
-
+			</div><div id="widthOfWork"><a href="#word" id="workButton" class="invisibleButton"></a><article class="project">
+				<p>Some stuff in here a bout thisng a stuff</p>
+				{% for day in allContent.days %}
+						<div class="day">
+						{% for post in day.posts%}
+							{% if post.tweet%}
+								<div class="tweetSquare square"></div>
+							{% elif post.article%}
+								<div class="articleSquare square"></div>
+							{% elif post.blogPost%}
+								<div class="blogPostSquare square"></div>
+							{% elif post.music%}
+								<div class="musicSquare square"></div>
+							{% elif post.insta%}
+								<div class="instaSquare square"></div>
+							{%endif%}
+						{% endfor %}
+						</div>
+				{% endfor %}
 			</div>
 		</div>
 	</section></div>

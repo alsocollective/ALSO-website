@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ALSO.models import ImageNode, TextNode,Category,Article,InstaPost
+from ALSO.models import ImageNode, TextNode, Category, Article, InstaPost, Post, Day
 
 # class ProjectAdmin(admin.ModelAdmin):
 # 	fields = ['title','content']
@@ -27,3 +27,5 @@ admin.site.register(TextNode)
 admin.site.register(Category)
 admin.site.register(Article)
 admin.site.register(InstaPost)
+admin.site.register(Post)
+admin.site.register(Day)

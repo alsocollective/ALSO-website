@@ -72,56 +72,47 @@ class Article(models.Model):
 	def __unicode__(self):
 		return self.title
 
+postTypes = (
+	('tweet','tweet'),
+	('article','article'),
+	('blogPost','blogPost'),
+	('music','music')
+)
 
 
-# class Employee(models.Model):
-# 	firstName = models.CharField(max_length=100)
-# 	lastName = models.CharField(max_length=100)
-# 	bio = models.TextField(max_length=1000)
-# 	slug = models.SlugField(blank=True)
 
-# 	def __unicode__(self):
-# 		return self.firstName + " " + self.lastName
+class Post(models.Model):
+	##for tweets
+	text = models.TextField(max_length=4000, blank=True)
+	creator = models.CharField(max_length= 200, blank=True)
+	#date = models.DateTimeField(auto_now=True)
 
-# 	def save(self, *args, **kwargs):
-# 		self.slug = slugify(self.firstName + " " + self.lastName)
-# 		super(Employee, self).save(*args, **kwargs)
+	##articles
+	url = models.URLField(max_length=1000, blank=True)
+	image = models.ManyToManyField(ImageNode,blank=True,related_name="image+")
+	title = models.CharField(max_length=600, blank=True,default="none")
+	slug = models.SlugField(blank=True)
 
-# class Project(models.Model):
-# 	title = models.CharField(max_length=50)
-# 	content = models.TextField(max_length=1000)
-# 	slug = models.SlugField(blank=True)
+	postType = models.CharField(max_length=20, choices=postTypes)
 
-# 	def __unicode__(self):
-# 		return self.title
+	def save(self,*args, **kwargs):
+		# if(self.postType == "tweet"):
+		# 	self.title = "tweet"
+		self.slug = slugify(self.title)
+		super(Post, self).save(*args, **kwargs)
 
-# 	def save(self, *args, **kwargs):
-# 		self.slug = slugify(self.title)
-# 		super(Project, self).save(*args, **kwargs)
+	def __unicode__(self):
+		return self.title
 
 
-# class Page(models.Model):
-# 	title = models.CharField(max_length=100)
-# 	content = models.TextField(max_length=3000)
-# 	slug = models.SlugField(blank=True)
+class Day(models.Model):
+	date = models.DateField(auto_now=False)
+	posts = models.ManyToManyField(Post,blank=True,related_name="posts+")
 
-# 	def __unicode__(self):
-# 		return self.title
+	instagramFields = models.ManyToManyField(InstaPost,blank=True,related_name="instaDay+")
 
-# 	def save(self, *args, **kwargs):
-# 		self.slug = slugify(self.title)
-# 		super(Page, self).save(*args, **kwargs)
+	def __unicode__(self):
+		return self.date.strftime('%Y-%m-%d')
 
-# class Category(models.Model):
-# 	title = models.CharField(max_length=50)
-# 	projects = models.ManyToManyField(Project, blank=True, related_name="projects+")
-# 	pages = models.ManyToManyField(Page, blank=True, related_name="pages+")
-
-# 	def __unicode__(self):
-# 		return self.title
-
-# 	def save(self, *args, **kwargs):
-# 		self.slug = slugify(self.title)
-# 		super(Category, self).save(*args, **kwargs)
 
 

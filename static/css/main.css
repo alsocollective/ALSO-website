@@ -235,12 +235,12 @@ article iframe{
 	position: relative;
 }
 
-.page img{
-	width: inherit;
+#work .page img{
+	width: 100%;
+	min-width: inherit;
 	height: auto;
+	min-height: 100%;
 }
-
-
 
 
 /*******************
@@ -263,6 +263,13 @@ About
 
 #people .page .profileImage{
 	position: absolute;
+}
+
+#people .page img{
+	width: auto;
+	min-width: inherit;
+	height: auto;
+	min-height: 100%;
 }
 
 
@@ -316,9 +323,33 @@ About
 
 #word{
 	top: 75%;
-	background-color: rgb(0,0,255);
+	background-color: #777;
 }
-
+.day{
+	height: 100%;
+	width: 25px;
+}
+.square{
+	width: inherit;
+	height: 25px;
+	float: left;
+	background-color: #fcf;
+}
+.tweetSquare{
+	background-color: #0ff;
+}
+.articleSquare{
+	background-color: #ff0;
+}
+.blogPostSquare{
+	background-color: #5f5;
+}
+.musicSquare{
+	background-color: #f0f;
+}
+.instaSquare{
+	background-color: #0f0;
+}
 
 
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response, get_object_or_404
 # from  ALSO.models import Project,Category,Page
-from ALSO.models import ImageNode, TextNode, Category ,Article, InstaPost
+from ALSO.models import ImageNode, TextNode, Category ,Article, InstaPost, Post, Day
 
 import requests
 import json
@@ -51,6 +51,31 @@ def home(request):
 		catObj.update({"artList":artList})
 		allContent.update({category.title:catObj})
 
+	days=[]
+	allDays = Day.objects.all()
+	for dayObj in allDays:
+		day = {"date":dayObj.date.strftime('%Y-%m-%d')}
+
+		postOut = []
+		for post in dayObj.posts.all():
+			out = {
+				post.postType:"type",
+				"text":post.text,
+				"poster":post.creator,
+				"title":post.title,
+				"slug":post.slug
+				}
+			for image in post.image.all():
+				out.update({"image":image.title})
+			postOut.append(out)
+
+		for image in dayObj.instagramFields.all():
+			postOut.append({"insta":"type","url":image.url})
+
+		day.update({"posts":postOut})
+		days.append(day)
+
+	allContent.update({"days":days})
 
 	return render_to_response('index.html',{'allContent':allContent})
 
@@ -87,3 +112,6 @@ def getNewInstaPost(request):
 			newImage.save()
 
 	return render_to_response('basic.html',{"nothing":"out"})
+
+
+
