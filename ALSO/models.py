@@ -36,6 +36,12 @@ class TextNode(models.Model):
 	def __unicode__(self):
 		return self.title
 
+class InstaPost(models.Model):
+	message = models.CharField(max_length=1000)
+	url = models.URLField(max_length=1000)
+	date = models.DateTimeField(auto_now=False)
+	creator = models.CharField(max_length=300)
+
 class Category(models.Model):
 	title = models.CharField(max_length=600)
 	slug = models.SlugField(blank=True)
@@ -53,6 +59,7 @@ class Article(models.Model):
 	title = models.CharField(max_length=600)
 	textFields = models.ManyToManyField(TextNode,blank=True,related_name="textFields+")
 	imageFields = models.ManyToManyField(ImageNode,blank=True,related_name="imageFields+")
+	instagramFields = models.ManyToManyField(InstaPost,blank=True,related_name="instFields+")
 	category = models.ManyToManyField(Category,related_name="category+")
 	## could add to the save function so it affects the others articles of the same class
 	order = models.IntegerField(blank=True,default=0)
@@ -64,6 +71,8 @@ class Article(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
+
 
 # class Employee(models.Model):
 # 	firstName = models.CharField(max_length=100)

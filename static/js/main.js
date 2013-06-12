@@ -22,7 +22,7 @@ window.onload = function(){
 window.addEventListener("resize",function(){
 	workObject.setSizeOfElements();
 	aboutObject.setSizeOfElements();
-	processObject.setSizeOfElements();
+	processObject.setSizeOfElements("instegram");
 })
 
 function setupWork(paerentID){
@@ -63,6 +63,7 @@ function setupWork(paerentID){
 		}
 	}
 
+	parentNode.setAttribute("style","transition: height 1s, width 1s, left 1s, top 1s; -moz-transition: height 1s, width 1s, left 1s, top 1s; -webkit-transition: height 1s, width 1s, left 1s, top 1s; -o-transition: height 1s, width 1s, left 1s, top 1s;");
 
 	parentNode.onclick = expandThisZone;
 	function expandThisZone(){
@@ -97,38 +98,34 @@ function setupWork(paerentID){
 		var size = 0;
 		//these set the ratio, they HAVE TO equal 1!!!!!
 		slideWidth = windowWidth*.7;
+		staticWidth = slideWidth; //for when we use instagram!!!
+
 		offsetBetween = windowWidth*.3;
-		var thisSlideWidth = 0;
 
 		if(formatOfDivs == "instegram"){
-			for(var a = 0; a < children.length; ++a){
-				if(children[a].nodeType == 1 && children[a].id != "workButton"){
-					children[a].style.width = slideWidth*2;
-					size += slideWidth*2 + offsetBetween;
-				} else if(children[a].nodeType == 1 && children[a].id == "workButton"){
-					children[a].style.width = slideWidth - offsetBetween;
-					size += slideWidth - offsetBetween;
+			var windowHeight = $(window).height()*0.85/2;
+			slideWidth = windowHeight;//$("#process").height()/2;
+		}
+
+		var thisSlideWidth = 0;
+
+		for(var a = 0; a < children.length; ++a){
+			if(children[a].nodeType == 1 && children[a].id != "workButton"){
+				var possibleWidth = findCildWidth(children[a],slideWidth,1);
+				if( possibleWidth ){
+					children[a].style.width = possibleWidth;
+				} else {
+					children[a].style.width = slideWidth;
 				}
-			}
-		} else {
-			for(var a = 0; a < children.length; ++a){
-				if(children[a].nodeType == 1 && children[a].id != "workButton"){
-					var possibleWidth = findCildWidth(children[a],slideWidth,1);
-					if( possibleWidth ){
-						children[a].style.width = possibleWidth;
-					} else {
-						children[a].style.width = slideWidth;
-					}
-					children[a].style.marginLeft = offsetBetween + "px";
-					thisSlideWidth = children[a].offsetWidth;
-					size += thisSlideWidth + offsetBetween;
-				} else if(children[a].nodeType == 1 && children[a].id == "workButton"){
-					children[a].style.width = slideWidth - offsetBetween;
-					size += slideWidth - offsetBetween;
-				}
+				children[a].style.marginLeft = offsetBetween + "px";
+				thisSlideWidth = children[a].offsetWidth;
+				size += thisSlideWidth + offsetBetween;
+			} else if(children[a].nodeType == 1 && children[a].id == "workButton"){
+				children[a].style.width = staticWidth - offsetBetween;
+				size += staticWidth - offsetBetween;
 			}
 		}
-		//we add 10 for good measure
+
 		widthOfSliding.style.width = Math.ceil(size)+10;
 		if(!isActiveElement){
 			backgroundElement.style.right = (backgroundElement.offsetWidth)*-1;
@@ -231,4 +228,26 @@ function setHashTag(newTag){
 	element.id = "";
 	window.location.replace("#"+newTag);
 	element.id = newTag;
+}
+
+function windowSize() {
+  var myWidth = 0, myHeight = 0;
+  if( typeof( window.innerWidth ) == 'number' ) {
+    //Non-IE
+    myWidth = window.innerWidth;
+    myHeight = window.innerHeight;
+  } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+    //IE 6+ in 'standards compliant mode'
+    myWidth = document.documentElement.clientWidth;
+    myHeight = document.documentElement.clientHeight;
+  } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+    //IE 4 compatible
+    myWidth = document.body.clientWidth;
+    myHeight = document.body.clientHeight;
+  }
+
+  return {
+  	"width": myWidth,
+  	"height": myHeight
+  }
 }

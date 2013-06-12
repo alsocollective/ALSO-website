@@ -76,10 +76,7 @@ section {
 	overflow: hidden;
 
 
-	transition: height 1s, width 1s, left 1s, top 1s;
-	-moz-transition: height 1s, width 1s, left 1s, top 1s;
-	-webkit-transition: height 1s, width 1s, left 1s, top 1s;
-	-o-transition: height 1s, width 1s, left 1s, top 1s;
+
 
 }
 
@@ -270,10 +267,52 @@ About
 
 
 
+
+
 #process{
 	top: 50%;
-	background-color: rgb(255,0,255);
+	background-color: #999;
 }
+
+.instaPic{
+	height: 100%;
+}
+
+.instaPic div{
+	float: left;
+	width: inherit;
+	height: 50%;
+}
+
+.instaPic div img{
+	position: absolute;
+	width: inherit;
+	height: auto;
+}
+
+.instaPic div div{
+	position: relative;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.instaPic div div:hover{
+	background-color: #000;
+	color:#fff;
+	opacity: 1;
+}
+
+.instaPic h1{
+	width: inherit;
+	position: absolute;
+	clear: both;
+}
+
+
+
+
+
 
 #word{
 	top: 75%;

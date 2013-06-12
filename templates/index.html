@@ -41,8 +41,10 @@
 	<h2>
 
 		<!-- {{allContent.Work}} -->
-		{% for article in allContent.About.artList %}
-			<small style="font-size: 10px;color:#000;">{{article}}</small> <br>
+		{% for article in allContent.Process.artList.0.insta %}
+			
+				<small style="font-size: 10px;color:#000;">{{article.creator}}</small> <br>
+
 		{% endfor %}
 
 
@@ -81,7 +83,7 @@
 				</ul>
 			</div><div id="widthOfWork"><a href="#about" class="invisibleButton" id="workButton"></a>{% for article in allContent.About.artList %}<article id="{{article.slug}}" class="project">{% if article.contact %}
 
-				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/?ie=UTF8&amp;ll=43.641044,-79.421282&amp;spn=0.049877,0.110378&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+<!-- 				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/?ie=UTF8&amp;ll=43.641044,-79.421282&amp;spn=0.049877,0.110378&amp;t=m&amp;z=14&amp;output=embed"></iframe> -->
 				<h1>{{article.title}}</h1>
 
 				<p class="positionBottom">{{article.text.0.text}}</p>
@@ -108,9 +110,24 @@
 					<li></li>
 				</ul>
 			</div><div id="widthOfWork"><a href="#process" id="workButton" class="invisibleButton">
-				</a><article class="project">
-					<h1>this one has one long box</h1>
-			</article></div>
+				</a><article class="project">{% for c1, c2 in allContent.Process.artList.0.insta %}<div class="page instaPic">
+					<div>
+						<img src="{{c1.url}}">
+						<div>
+							{{c1.message}}<br>
+							{{c1.creator}}<br>
+							{{c1.date}}<br>
+						</div>
+					</div>
+					<div>
+						<img src="{{c2.url}}">
+						<div>
+							{{c2.message}}<br>
+							{{c2.creator}}<br>
+							{{c2.date}}<br>
+						</div>
+					</div>
+				</div>{% endfor %}</article></div>
 		</div>
 	</section><section id="word"><div id="staticBackground">
 			<h1>Word</h1>
