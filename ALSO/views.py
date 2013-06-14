@@ -30,7 +30,7 @@ def home(request):
 				imageList.append(imageObj)
 ## instegram
 			instaList = []
-			allInstaPosts = article.instagramFields.all()
+			allInstaPosts = article.instagramFields.all().order_by('-date')
 			for i in xrange(0,len(allInstaPosts)-2,2):
 				subList = ({"message":allInstaPosts[i].message,
 							"url":allInstaPosts[i].url,
