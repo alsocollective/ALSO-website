@@ -186,43 +186,25 @@ article iframe{
 }
 
 
-
 #staticBackground{
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	display: table;
 }
 
-#staticBackground h1{
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
-	line-height: 0.8em;
-/*	padding-right: 50%;
-*/}
+.defaultstate #staticBackground{
+	margin-left: 0!important;
+}
+
 
 h1 span{
 	display: inline-block;
 }
+
 /* adding to it as they shrink */
-.bgNave{
-	vertical-align: middle;
-	text-align: left!important;
-	font-size: 1em;
-}
-.bgDefault{
-	width: 100%;
-	text-align: left !important;
-}
-.bgActive{
-
-}
-
 .huge{
 	font-size: 100%;
 }
-
 
 .page{
 	display: inline-block;
@@ -241,7 +223,8 @@ h1 span{
 	position: relative;
 }
 
-
+.navstate .slider{
+}
 .slider{
 	overflow: hidden;
 	width: 100%;

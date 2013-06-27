@@ -10,7 +10,7 @@ def home(request):
 	categories = Category.objects.all()
 	allContent = {}
 	for category in categories:
-		catObj = {"cat":category.slug}
+		catObj = {"cat":category,"description":category.description.textField}
 		articles = Article.objects.all().order_by('-date').filter(category__exact = category)
 		artList = []
 		for article in articles:
