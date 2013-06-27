@@ -53,7 +53,7 @@
 		SParent.appendChild(SF);
 	</script>
 
-	<h3>{% for article in allContent.About.artList %}{% if article.contact %}{{article.text.0.text}}{% endif %}{% endfor %}</h3>
+	<h3>{% for article in allContent.About.artList %}{% if article.contact %}{{article.text.0.text|safe}}{% endif %}{% endfor %}</h3>
 </div>
 <div id="contentWrapper"><section id="work"><div id="staticBackground">
 			<h1><span>W</span><span>O</span><span>R</span><span>K</span></h1>
@@ -89,8 +89,7 @@
 
 				<!-- <p class="positionBottom">{{article.text.0.text}}</p> -->
 				{% elif article.people %}{% for text in article.text %}<div class="page">
-						<div class="imageContainer">
-							<img class="profileImage" src="/static/img/uploaded/{{text.bkImage}}">
+						<div class="background fullAbsolute" style="background-image: url('/static/img/uploaded/{{text.bkImage}}')">
 						</div>
 						<h1>{{text.title}}</h1>
 

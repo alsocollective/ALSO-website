@@ -148,6 +148,7 @@ section {
 	position: absolute;
 	text-align: center;
 	bottom: 0px;
+	width: 100%;
 }
 
 
@@ -207,16 +208,14 @@ h1 span{
 }
 /* adding to it as they shrink */
 .bgNave{
-	vertical-align: top!important;
+	vertical-align: middle;
 	text-align: left!important;
 	font-size: 1em;
 }
-
 .bgDefault{
 	width: 100%;
 	text-align: left !important;
 }
-
 .bgActive{
 
 }
@@ -323,6 +322,11 @@ h1 span{
 	padding: 0;
 }
 
+.fullAbsolute{
+	position: absolute;
+	width: inherit;
+}
+
 /*******************
 About
 *******************/
@@ -379,6 +383,7 @@ About
 
 #people .page h1{
 	margin:	0;
+	background-color: none;
 	text-align: center;
 }
 
@@ -397,7 +402,7 @@ process
 *******************/
 
 #process{
-	top: 66.66%;
+	top: 66.6666%;
 	background-color: #444;
 }
 

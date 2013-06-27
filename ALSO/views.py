@@ -92,6 +92,7 @@ def getNewInstaPost(request):
 	address = "https://api.instagram.com/v1/tags/%s/media/recent?client_id=f6f99af9459c462d90e826d5893b61f7"%tag
 	data = json.loads(requests.get(address).content)
 	allInstaPosts = InstaPost.objects.all()
+	instaArticle = Article.objects.filter(title="Instagram")[0]
 
 	for image in data["data"]:
 		isItNew = True
@@ -110,6 +111,9 @@ def getNewInstaPost(request):
 			normalTS = datetime.fromtimestamp(unixtimestamp).strftime('%Y-%m-%d %H:%M:%S')
 			newImage = InstaPost.objects.create(message = text,url = link,date = normalTS,creator = user)
 			newImage.save()
+			instaArticle.instagramFields.add(newImage)
+
+	instaArticle.save()
 
 	return render_to_response('basic.html',{"nothing":"out"})
 
