@@ -1,4 +1,3 @@
-
 html,
 button,
 input,
@@ -276,7 +275,7 @@ h1 span{
 }
 
 #work:hover{
-	background-color: #e77;
+	/*background-color: #e77;*/
 }
 
 #work article{
@@ -334,11 +333,11 @@ About
 
 #about{
 	top: 33.33%;
-	background-color: #444;
+	background-color: #fee;
 	overflow: hidden;
 }
 #about:hover{
-	background-color: #e77;
+	/*background-color: #e77;*/
 }
 #about article{
 	background-color: #98a;
@@ -407,7 +406,7 @@ process
 }
 
 #process:hover{
-	background-color: #e77;
+	/*background-color: #e77;*/
 }
 
 #process article{
