@@ -10,6 +10,17 @@ from ALSO.models import ImageNode, TextNode, Category, Article, InstaPost, Post,
 # 		('content',{'fields':['projects','pages']}),
 # 	]
 
+class ArticleAdmin(admin.ModelAdmin):
+	list_display = ('title', 'date')
+	filter_horizontal = ('textFields','imageFields','instagramFields',)
+
+	fieldsets = [
+		(None,{'fields':['title','category','date','textFields','imageFields']}),
+		('Advance options', {
+			'classes':('collapse',),
+			'fields':('instagramFields','slug',)
+			}),
+	]
 
 class Image(admin.ModelAdmin):
 	fieldsets = [
@@ -20,12 +31,14 @@ class Image(admin.ModelAdmin):
 			}),
 	]
 
+class TextAdmin(admin.ModelAdmin):
+	list_display = ('title', 'date')
 
 
 admin.site.register(ImageNode,Image)
-admin.site.register(TextNode)
+admin.site.register(TextNode,TextAdmin)
 admin.site.register(Category)
-admin.site.register(Article)
+admin.site.register(Article,ArticleAdmin)
 admin.site.register(InstaPost)
 admin.site.register(Post)
-admin.site.register(Day)
+# admin.site.register(Day)

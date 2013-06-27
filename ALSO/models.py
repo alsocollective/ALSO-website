@@ -32,6 +32,7 @@ class TextNode(models.Model):
 	title = models.CharField(max_length=600)
 	backgroundImage = models.ManyToManyField(ImageNode, blank=True, related_name="bkImage+")
 	textField = models.TextField(max_length=4000)
+	date = models.DateField(auto_now=False,blank=True,null=True)
 
 	def __unicode__(self):
 		return self.title
@@ -72,6 +73,7 @@ class Article(models.Model):
 	def __unicode__(self):
 		return self.title
 
+	date = models.DateField(auto_now=False)
 postTypes = (
 	('tweet','tweet'),
 	('article','article'),
@@ -94,6 +96,7 @@ class Post(models.Model):
 	slug = models.SlugField(blank=True)
 
 	postType = models.CharField(max_length=20, choices=postTypes)
+	date = models.DateField(auto_now=False,blank=True,null=True)
 
 	def save(self,*args, **kwargs):
 		# if(self.postType == "tweet"):

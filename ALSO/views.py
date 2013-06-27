@@ -11,14 +11,14 @@ def home(request):
 	allContent = {}
 	for category in categories:
 		catObj = {"cat":category.slug}
-		articles = Article.objects.all().filter(category__exact = category)
+		articles = Article.objects.all().order_by('-date').filter(category__exact = category)
 		artList = []
 		for article in articles:
 ## initialze Category
 			artObj = {"title":article.title,"slug":article.slug,article.slug:"yep"}#, "textFields":article.textFields.all()}
 ## texts
 			textList = []
-			for text in article.textFields.all():
+			for text in article.textFields.all().order_by('-date'):
 				textObj = {"text":text.textField,"title":text.title}
 				for image in text.backgroundImage.all():
 					textObj.update({"bkImage":image.title})

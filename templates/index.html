@@ -40,7 +40,6 @@
 		var SParent = document.getElementById("splash");
 		var SF = document.createElement("iframe");
 		var splahsOptions = [
-			"Rline",
 			"pixelPush",
 			"linesToPoint"
 		]
@@ -72,8 +71,8 @@
 						<p>
 							{{text.text}}
 						</p>
-					</div>{% endfor %}{% for image in article.image %}<div class="page">
-						<img src="/static/img/uploaded/{{image.title}}">
+					</div>{% endfor %}{% for image in article.image %}<div class="page background" style="background-image: url('/static/img/uploaded/{{image.title}}')">
+						
 					</div>{% endfor %}</article>{% endfor %}
 			</div>
 		</div>
