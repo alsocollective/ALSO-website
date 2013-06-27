@@ -206,7 +206,7 @@ function setupWork(paerentID){
 		var links = backgroundElement.childNodes[1].childNodes;
 		for (var a = 0; a < links.length; ++a){
 			if(links[a].nodeType == 1 && links[a].hasChildNodes()){
-				addEvent(links[a],links[a].firstChild.name,offsetBetween);
+				addEvent(links[a],links[a].firstChild.name,offsetBetween*0.5);
 			}
 		}
 	}
