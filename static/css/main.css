@@ -104,7 +104,7 @@ section {
 
 .navList li{
 	width: 100%;
-	background-color: #fcc;
+	/*background-color: #fcc;*/
 }
 
 .navList li h3{
@@ -120,9 +120,14 @@ section {
 	padding: 1em 0em 1em 0em;
 	width: 100%;
 	text-align: center;
+	
 }
 .navList li a:hover{
 	background-color: #fcf;
+	width: 100%;
+}
+.navList li a:active{
+	background-color: #f00;
 	width: 100%;
 }
 
@@ -160,13 +165,11 @@ article{
 	position: relative;
 	height: 100%;
 	overflow: hidden;
-
-	background-color: #00d;
-
+	/*background-color: #00d;*/
 }
 
 article h1{
-	background-color: #444;
+	/*background-color: #444;*/
 	position: relative;
 }
 
@@ -270,7 +273,7 @@ h1 span{
 
 #work{
 	/*background-image: url("/static/img/background1.jpg");*/
-	background-color: #444;
+	background-color: #ff66cc;
 	overflow: hidden;
 }
 
@@ -279,7 +282,8 @@ h1 span{
 }
 
 #work article{
-	background-color: #98a;
+	/*background-color: #98a;*/
+	
 }
 
 
@@ -330,17 +334,21 @@ h1 span{
 About
 *******************/
 
+/*
+BLUE: #33ccff
+YELLOW: #e6dc5a
+*/
 
 #about{
 	top: 33.33%;
-	background-color: #fee;
+	background-color: #33ccff;
 	overflow: hidden;
 }
 #about:hover{
 	/*background-color: #e77;*/
 }
 #about article{
-	background-color: #98a;
+	/*background-color: #98a;*/
 }
 
 .positionBottom {
@@ -402,7 +410,7 @@ process
 
 #process{
 	top: 66.6666%;
-	background-color: #444;
+	background-color: #ffcc66;
 }
 
 #process:hover{
@@ -410,7 +418,7 @@ process
 }
 
 #process article{
-	background-color: #98a;
+	/*background-color: #98a;*/
 }
 
 .instaPic{
