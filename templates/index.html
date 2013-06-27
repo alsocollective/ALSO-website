@@ -56,10 +56,9 @@
 	<h3>{% for article in allContent.About.artList %}{% if article.contact %}{{article.text.0.text}}{% endif %}{% endfor %}</h3>
 </div>
 <div id="contentWrapper"><section id="work"><div id="staticBackground">
-			<h1>WORK</h1>
+			<h1><span>W</span><span>O</span><span>R</span><span>K</span></h1>
 		</div><div class="slider" id="sWork"><div id="backgroundAREA">
 					<ul class="navList">
-						<li><h3>Work</h3></li>
 						{% for article in allContent.Work.artList %}
 							<li><a href="#{{article.slug}}" name="{{article.slug}}">{{article.title}}</a></li>
 						{% endfor %}
@@ -72,15 +71,13 @@
 							{{text.text}}
 						</p>
 					</div>{% endfor %}{% for image in article.image %}<div class="page background" style="background-image: url('/static/img/uploaded/{{image.title}}')">
-						
 					</div>{% endfor %}</article>{% endfor %}
 			</div>
 		</div>
 	</section><section id="about"><div id="staticBackground">
-			<h1>ABOUT</h1>
+			<h1><span>A</span><span>B</span><span>O</span><span>U</span><span>T</span></h1>
 		</div><div class="slider" id="sAbout"><div id="backgroundAREA">
 				<ul class="navList">
-						<li><h3>About</h3></li>
 					{% for article in allContent.About.artList %}
 						<li><a href="#{{article.slug}}" name="{{article.slug}}">{{article.title}}</a></li>
 					{% endfor %}
@@ -90,7 +87,7 @@
 				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/?ie=UTF8&amp;ll=43.641044,-79.421282&amp;spn=0.049877,0.110378&amp;t=m&amp;z=14&amp;output=embed"></iframe>
 				<h1>{{article.title}}</h1>
 
-				<p class="positionBottom">{{article.text.0.text}}</p>
+				<!-- <p class="positionBottom">{{article.text.0.text}}</p> -->
 				{% elif article.people %}{% for text in article.text %}<div class="page">
 						<div class="imageContainer">
 							<img class="profileImage" src="/static/img/uploaded/{{text.bkImage}}">
@@ -107,7 +104,7 @@
 				{% endif %}</article>{% endfor %}</div>
 		</div>
 	</section><section id="process"><div id="staticBackground">
-			<h1>Process</h1>
+			<h1><span>P</span><span>r</span><span>o</span><span>c</span><span>e</span><span>s</span><span>s</span></h1>
 		</div><div id="sProcess"><div id="backgroundAREA">
 				<ul>
 
