@@ -48,6 +48,7 @@ class Category(models.Model):
 	slug = models.SlugField(blank=True)
 	##if left blank have it display all
 	toDisplay = models.IntegerField(blank=True,default=0)
+	description = models.ForeignKey(TextNode,blank=True,null=True)
 
 	def save(self,*args, **kwargs):
 		self.slug = slugify(self.title)

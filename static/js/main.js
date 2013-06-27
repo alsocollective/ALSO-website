@@ -59,6 +59,7 @@ $(window).bind("resize",function(){
 function setupWork(paerentID){
 	//getting all the elements
 	var parentNode = document.getElementById(paerentID); //ver top element
+	console.log(parentNode);
 	var titleBackground = findFirstEl(parentNode.childNodes[0]);
 	var slidingElement = parentNode.childNodes[1];			//the sliding element
 	var backgroundElement = slidingElement.childNodes[0];// the background Element that is fixed
@@ -107,29 +108,25 @@ function setupWork(paerentID){
 	}
 
 	function setBackgroundActive(){
-		$(titleBackground).removeClass("bgNave");
-		$(titleBackground).removeClass("bgDefault");
-		if(!$(titleBackground).hasClass("bgActive")){
-			$(titleBackground).addClass("bgActive");
+		$(parentNode).removeClass("navstate");
+		$(parentNode).removeClass("defaultstate");
+		if(!$(parentNode).hasClass("activestate")){
+			$(parentNode).addClass("activestate");
 		}
-		console.log(parentNode.id, "Active");
 	}
 	function setBackgroundDefault(){
-		$(titleBackground).removeClass("bgNave");
-		$(titleBackground).removeClass("bgActive");
-		if(!$(titleBackground).hasClass("bgDefault")){
-			$(titleBackground).addClass("bgDefault");
+		$(parentNode).removeClass("navstate");
+		$(parentNode).removeClass("activestate");
+		if(!$(parentNode).hasClass("defaultstate")){
+			$(parentNode).addClass("defaultstate");
 		}
-		console.log(parentNode.id, "default");
 	}
 	function setBackgroundNav(){
-		$(titleBackground).removeClass("bgActive");
-		$(titleBackground).removeClass("bgDefault");
-		if(!$(titleBackground).hasClass("bgNave")){
-			$(titleBackground).addClass("bgNave");
+		$(parentNode).removeClass("activestate");
+		$(parentNode).removeClass("defaultstate");
+		if(!$(parentNode).hasClass("navstate")){
+			$(parentNode).addClass("navstate");
 		}
-		console.log(parentNode.id, "NAV");
-
 	}
 
 	this.expandThisZoneFromOut = function(){
@@ -168,7 +165,7 @@ function setupWork(paerentID){
 		slideWidth = windowWidth*0.8;
 		staticWidth = slideWidth; //for when we use instagram!!!
 
-		offsetBetween = windowWidth*0.4;
+		offsetBetween = windowWidth*0.8;
 
 		if(formatOfDivs == "instegram"){
 			var windowHeight = $(window).height()*0.90/2;
@@ -198,17 +195,18 @@ function setupWork(paerentID){
 
 			} else if(children[a].nodeType == 1 && children[a].id == "workButton"){
 				children[a].style.width = staticWidth*0.125;
-				size += staticWidth - offsetBetween;
+				size += staticWidth*0.125;
 			}
 		}
-		backgroundElement.style.width = offsetBetween/2;
-		widthOfSliding.style.width = Math.ceil(size)+10;
+		backgroundElement.style.width = offsetBetween/4 +"px";
+		titleBackground.parentNode.style.marginLeft = offsetBetween/4;
+		widthOfSliding.style.width = Math.ceil(size)+10 +"px";
 
 	//setting the navigation up
 		var links = backgroundElement.childNodes[1].childNodes;
 		for (var a = 0; a < links.length; ++a){
 			if(links[a].nodeType == 1 && links[a].hasChildNodes()){
-				addEvent(links[a],links[a].firstChild.name,offsetBetween);
+				addEvent(links[a],links[a].firstChild.name,offsetBetween*0.5);
 			}
 		}
 	}
@@ -256,7 +254,6 @@ function setupWork(paerentID){
 		for(var a = 0; a < childNodesBg.length; ++a){
 			if(childNodesBg[a].nodeType == 1){
 				outHight = getPageTopLeft(childNodesBg[a]).top;// + childNodesBg[a].offsetHeight;
-				console.log(outHight);
 			}
 		}
 		return outHight
@@ -355,7 +352,6 @@ function addEvent(link, endPoint, offset){
 	$(link).unbind();
 	$(link).bind('click', function(event){
 		event.preventDefault();
-		console.log(event);
 		goToThisEndPoint(endPoint,offset);
 	});
 }

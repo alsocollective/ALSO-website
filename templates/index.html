@@ -56,7 +56,8 @@
 	<h3>{% for article in allContent.About.artList %}{% if article.contact %}{{article.text.0.text|safe}}{% endif %}{% endfor %}</h3>
 </div>
 <div id="contentWrapper"><section id="work"><div id="staticBackground">
-			<h1>Work</h1>
+			<h1>{{allContent.Work.cat}}</h1>
+			<p>{{allContent.Work.description}}</p>
 		</div><div class="slider" id="sWork"><div id="backgroundAREA">
 					<ul class="navList">
 						{% for article in allContent.Work.artList %}
@@ -75,7 +76,8 @@
 			</div>
 		</div>
 	</section><section id="about"><div id="staticBackground">
-			<h1>About</h1>
+			<h1>{{allContent.About.cat}}</h1>
+			<p>{{allContent.About.description}}</p>
 		</div><div class="slider" id="sAbout"><div id="backgroundAREA">
 				<ul class="navList">
 					{% for article in allContent.About.artList %}
@@ -103,8 +105,9 @@
 				{% endif %}</article>{% endfor %}</div>
 		</div>
 	</section><section id="process"><div id="staticBackground">
-			<h1>Process</h1>
-		</div><div id="sProcess"><div id="backgroundAREA">
+			<h1>{{allContent.Process.cat}}</h1>
+			<p>{{allContent.Process.description}}</p>
+		</div><div id="sProcess" class="slider"><div id="backgroundAREA">
 				<ul>
 
 				</ul>
