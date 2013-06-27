@@ -2,8 +2,11 @@
 *.jpeg
 *.png
 *.gif
+*.pyc
+settings.py
 jquery.royalslider.min.js
 royalslider.css
 .DS_Store
 /static/splash/
-/new old/
+/new-old/
+/data/
