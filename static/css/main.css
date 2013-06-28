@@ -469,13 +469,6 @@ process
 	clear: both;
 }
 
-
-
-
-
-
-
-
 .hiden{
 	display: none;
 }
@@ -493,20 +486,24 @@ process
 	overflow: hidden;
 }
 
-#globalNave:hover{
+/*#globalNave:hover{
 	background-color: #f00;
-}
+}*/
 
 #globalNave a{
 	/*padding: 0.5em;*/
-	width:100%;
+	width:100px;
+	height:100px;
+	display: block;
 	margin: 0 auto 0 auto;
+	padding-top: 5px;
 	text-align: center;
-	/*background-color: #fff;*/
+	text-transform: uppercase;
+	background-color: #f00;
 }
 
 #globalNave a:hover{
 	color: #fff;
-	background-color: none;
+	background-color: #fee;
 }
 
