@@ -105,16 +105,16 @@
 				</a><article class="project">{% for c1, c2 in allContent.Process.artList.0.insta %}<span class="page instaPic">
 					<div class="background" style="background-image: url('{{c1.url}}')">
 						<div>
-							{{c1.message|safe}}<br>
-							{{c1.creator|safe}}<br>
-							{{c1.date|safe}}<br>
+							{{c1.message|safe}}{# <br> #}
+{# 							{{c1.creator|safe}}<br> #}
+{# 							{{c1.date|safe}}<br> #}
 						</div>
 					</div>
 					<div class="background" style="background-image: url('{{c2.url}}')">
 						<div>
-							{{c1.message|safe}}<br>
-							{{c1.creator|safe}}<br>
-							{{c1.date|safe}}<br>
+							{{c2.message|safe}}{# <br> #}
+{# 							{{c2.creator|safe}}<br> #}
+{# 							{{c2.date|safe}}<br> #}
 						</div>
 					</div>
 				</span>{% endfor %}</article></div>
@@ -134,7 +134,7 @@ var google;
 <script src="/static/js/main.js"></script>
 
 <script type="text/javascript">
-WebFontConfig = { fontdeck: { id: '20418' } };
+/*WebFontConfig = { fontdeck: { id: '20418' } };
 
 (function() {
   var wf = document.createElement('script');
@@ -144,7 +144,40 @@ WebFontConfig = { fontdeck: { id: '20418' } };
   wf.async = 'true';
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(wf, s);
-})();
+})();*/
+</script>
+
+<script type="text/javascript">
+/*var html = document.getElementsByTagName('html')[0];
+html.className += '  wf-loading';
+setTimeout(function() {
+  html.className = html.className.replace(' wf-loading', '');
+}, 5000);
+
+WebFontConfig = { fontdeck: { id: '20418' } };
+
+(function() {
+  var wf = document.createElement('script');
+  wf.src = 'http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})();*/
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37086718-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
 </script>
 
 </body>
