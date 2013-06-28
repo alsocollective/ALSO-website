@@ -50,17 +50,17 @@
 						{% endfor %}
 					</ul>
 				</div><div id="widthOfWork"><a href="#work" id="workButton" class="invisibleButton">
-				</a>{% for article in allContent.Work.artList %}<article id="{{article.slug}}" class="project">{% for text in article.text %}<div id="halfPage" class="page">
+				</a>{% for article in allContent.Work.artList %}<article id="{{article.slug}}" class="project">{% for text in article.text %}<span id="halfPage" class="page">
 <!-- 						<img class="backgroundImage" src="/static/img/uploaded/{{text.bkImage}}">
  -->					<h1>{{article.title|safe}}</h1>
 						<p>
 							{{text.text|safe}}
 						</p>
-					</div>{% endfor %}{% for image in article.image %}<div class="page background" style="background-image: url('/static/img/uploaded/{{image.title}}')">
+					</span>{% endfor %}{% for image in article.image %}<span class="page background" style="background-image: url('/static/img/uploaded/{{image.title}}')">
 					{%if image.link%}
 						<iframe src="{{image.link}}?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="500" height="331" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 					{%endif%}
-					</div>{% endfor %}</article>{% endfor %}
+					</span>{% endfor %}</article>{% endfor %}
 			</div>
 		</div>
 	</section><section id="about"><div id="staticBackground">
@@ -74,19 +74,17 @@
 				</ul>
 			</div><div id="widthOfWork"><a href="#about" class="invisibleButton" id="workButton"></a>{% for article in allContent.About.artList %}<article id="{{article.slug}}" class="project">{% if article.contact %}
 
-				<div id="map-canvas"/>
+					<![if !IE]><div id="map-canvas"/><![endif]>
 
 				<h1>{{article.title|safe}}</h1>
 
-				{% elif article.people %}{% for text in article.text %}<div class="page">
+				{% elif article.people %}{% for text in article.text %}<span class="page">
 						<div class="background fullAbsolute" style="background-image: url('/static/img/uploaded/{{text.bkImage}}')">
-							
 							<p>{{text.text|safe}}</p>
-							
 						</div>
 						<h1>{{text.title|safe}}</h1>
 
-					</div>{% endfor %}{% else %}
+					</span>{% endfor %}{% else %}
 
 					<h1>{{article.title|safe}}</h1>
 					<p>{{article.text.0.text|safe}}</p>
@@ -101,7 +99,7 @@
 
 				</ul>
 			</div><div id="widthOfWork"><a href="#process" id="workButton" class="invisibleButton">
-				</a><article class="project">{% for c1, c2 in allContent.Process.artList.0.insta %}<div class="page instaPic">
+				</a><article class="project">{% for c1, c2 in allContent.Process.artList.0.insta %}<span class="page instaPic">
 					<div class="background" style="background-image: url('{{c1.url}}')">
 						<div>
 							{{c1.message|safe}}<br>
@@ -116,7 +114,7 @@
 							{{c1.date|safe}}<br>
 						</div>
 					</div>
-				</div>{% endfor %}</article></div>
+				</span>{% endfor %}</article></div>
 		</div>
 	</section></div>
 

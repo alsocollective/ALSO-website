@@ -1,4 +1,5 @@
-if(google){
+if(google || document.getElementById("map-canvas")){
+	console.log("we got here");
 	google.maps.event.addDomListener(window, 'load', initialize);
 }
 var workObject, aboutObject, processObject;
@@ -48,7 +49,7 @@ window.onload = function(){
 		workObject.resetSize(true);
 		aboutObject.resetSize(true);
 		processObject.resetSize(true);
-
+		console.log("it should be expanding")
 		setTimeout(function(){
 			var hash = window.location.hash;
 			if(hash){
