@@ -480,11 +480,18 @@ function initialize() {
 		zoom: 13,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		overviewMapControl: true,
-		disableDefaultUI: false,
+		disableDefaultUI: true,
 	    scrollwheel: false,
-
-		styles: styles
+		styles: styles,
+		
+		zoomControl: true,
+		zoomControlOptions: {
+		        style: google.maps.ZoomControlStyle.LARGE,
+		        position: google.maps.ControlPosition.BOTTOM_CENTER
+			},
 	};
+	
+	google.maps.visualRefresh = true;
 
 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
@@ -494,9 +501,4 @@ function initialize() {
 		icon: "logo.png",
 		title: "bam"
 	});
-
-	// document.getElementById("map-canvas").style.height = "500px";
-	// setTimeout(function(){
-	// 	document.getElementById("map-canvas").style.height = "100%";
-	// },100);
 }
