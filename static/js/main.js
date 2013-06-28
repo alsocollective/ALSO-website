@@ -476,7 +476,7 @@ function initialize() {
 		]
 
 	var mapOptions = {
-		center: new google.maps.LatLng(43.644989,-79.47587),
+		center: new google.maps.LatLng(43.650153,-79.397196),
 		zoom: 13,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		overviewMapControl: true,
@@ -487,7 +487,7 @@ function initialize() {
 		zoomControl: true,
 		zoomControlOptions: {
 		        style: google.maps.ZoomControlStyle.LARGE,
-		        position: google.maps.ControlPosition.BOTTOM_CENTER
+		        position: google.maps.ControlPosition.BOTTOM_LEFT
 			},
 	};
 	
@@ -496,7 +496,7 @@ function initialize() {
 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
 	var marker = new google.maps.Marker({
-		position: new google.maps.LatLng(43.644989,-79.47587),
+		position: new google.maps.LatLng(43.650153,-79.397196),
 		map: map,
 		icon: "logo.png",
 		title: "bam"

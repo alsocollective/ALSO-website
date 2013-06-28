@@ -286,6 +286,7 @@ h1 span{
 
 .navstate .slider{
 	padding-top: 10%;
+	transition-duration: 1s;
 }
 
 .slider{
@@ -294,6 +295,8 @@ h1 span{
 	height: 100%;
 	position: relative;
 	z-index: -1;
+	padding: 0;
+	transition-duration: 1s;
 }
 
 #backgroundAREA{
