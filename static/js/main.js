@@ -1,5 +1,4 @@
 if(google && document.getElementById("map-canvas")){
-	console.log("we got here");
 	google.maps.event.addDomListener(window, 'load', initialize);
 }
 var workObject, aboutObject, processObject;
@@ -51,7 +50,6 @@ window.onload = function(){
 		workObject.resetSize(true);
 		aboutObject.resetSize(true);
 		processObject.resetSize(true);
-		console.log("it should be expanding")
 		setTimeout(function(){
 			var hash = window.location.hash;
 			if(hash){
@@ -64,10 +62,21 @@ window.onload = function(){
 			}
 		},100);
 	},1000);
+
+	setTimeout(function(){
+
+		$.getJSON('/data/', function(data) {
+			var projects = $(".articles");
+			data = data["articles"];
+			projects.each(function(index){
+				console.log(projects[index],);
+			});
+			console.log("data",data);
+		});
+	},200);
 }
 
 $(window).bind("resize",function(){
-	console.log("this");
 	workObject.setSizeOfElements();
 	aboutObject.setSizeOfElements();
 	processObject.setSizeOfElements("instegram");
@@ -206,15 +215,12 @@ function setupWork(paerentID){
 		for(var a = 0; a < children.length; ++a){
 			if(children[a].nodeType == 1 && children[a].id != "workButton"){
 				var possibleWidth;
-				console.log(children[a],children[a].id);
 				if(catName == "work"){
 					possibleWidth = findCildWidth(children[a],slideWidth,1,"first");
 				} else {
 					possibleWidth = findCildWidth(children[a],slideWidth,1,"normal");
 				}
-				console.log("psWidth",possibleWidth);
 				if( possibleWidth ){
-					console.log("apply",children[a].id)
 					children[a].style.width = possibleWidth+"px";
 				} else {
 					children[a].style.width = slideWidth+"px";
