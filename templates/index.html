@@ -36,6 +36,9 @@
 <![endif]-->
 
 <div id="splash">
+	<!--[if IE]>
+		<div class="background" style="background-image: url('/static/img/bkimg.jpg')";width:100%;height:100%;></div>
+	<![endif]-->
 	<![if !IE]><iframe src="static/splash/{{allContent.firstSlide}}/index.html" frameBorder="0" id="splashFrame" width="100%" height="100%"></iframe><![endif]>
 
 	<h3>{% for article in allContent.About.artList %}{% if article.contact %}{{article.text.0.text|safe}}{% endif %}{% endfor %}</h3>
@@ -51,8 +54,7 @@
 					</ul>
 				</div><div id="widthOfWork"><a href="#work" id="workButton" class="invisibleButton">
 				</a>{% for article in allContent.Work.artList %}<article id="{{article.slug}}" class="project">{% for text in article.text %}<span id="halfPage" class="page">
-<!-- 						<img class="backgroundImage" src="/static/img/uploaded/{{text.bkImage}}">
- -->					<h1>{{article.title|safe}}</h1>
+						<h1>{{article.title|safe}}</h1>
 						<p>
 							{{text.text|safe}}
 						</p>

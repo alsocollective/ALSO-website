@@ -409,7 +409,7 @@ h1 span{
 
 .background {
 	width: 100%;
-	height: 70%;
+	height: 100%;
 	background-position:center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -419,6 +419,7 @@ h1 span{
 }
 
 .fullAbsolute{
+	height: 70%;
 	position: absolute;
 	width: inherit;
 }
@@ -587,7 +588,7 @@ process
 
 #globalNave{
 	position: fixed;
-	left: -52;
+	left: -52px;
 	bottom: -50px;
 	width: 110px;
 	height: 100px;
