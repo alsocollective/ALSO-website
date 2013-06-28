@@ -128,6 +128,7 @@ section {
 
 .navList li{
 	width: 100%;
+	
 	/*background-color: #fcc;*/
 }
 
@@ -142,13 +143,23 @@ section {
 .navList li a{
 	display: block;
 	padding: 0;
-	width: 100%;
-	text-align: center;
+	width: 90%;
+	text-align: right;
 	
+	transition: all;
+	transition-duration: 0.5s;
+	transition-timing-function: linear;
 }
+
 .navList li a:hover{
 	background-color: #fcf;
-	width: 100%;
+	
+	width: 80%;
+	
+	transition: all;
+	transition-duration: 0.5s;
+	transition-timing-function:linear;
+	
 }
 .navList li a:active{
 	background-color: #f00;
@@ -500,7 +511,7 @@ PURPLE: #ff66cc
 	text-align: center;
 }
 
-#people .page p{
+/*#people .page p{
 	width: 90%;
 	height: 100%;
 	margin: 0;
@@ -511,9 +522,36 @@ PURPLE: #ff66cc
 	line-height: 1.2em;
 	padding: 1em 5em 0 1em;
 	vertical-align: middle;
+	position: relative;
+	font-family: "Fortescue Regular", 'Times New Roman', Times, serif;
+	font-weight: normal;
+	font-style: normal;
+	display: block;
 }
 
 #people .page p:hover{
+	opacity: 1;
+}*/
+
+.biodesc {
+	width: 90%;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+	background-color: #33ccff;
+	font-size: 1.3em;
+	color: #fff;
+	line-height: 1.2em;
+	padding: 1em 5em 0 1em;
+	vertical-align: middle;
+	position: relative;
+	font-family: "Fortescue Regular", 'Times New Roman', Times, serif;
+	font-weight: normal;
+	font-style: normal;
+	display: block;
+}
+
+.biodesc:hover {
 	opacity: 1;
 }
 

@@ -80,7 +80,7 @@
 
 				{% elif article.people %}{% for text in article.text %}<span class="page">
 						<div class="background fullAbsolute" style="background-image: url('/static/img/uploaded/{{text.bkImage}}')">
-							<p>{{text.text|safe}}</p>
+							<div class="biodesc">{{text.text|safe}}</div>
 						</div>
 						<h1>{{text.title|safe}}</h1>
 
