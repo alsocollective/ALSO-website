@@ -34,10 +34,9 @@ class ImageNode(models.Model):
 
 	def admin_image(self):
 		if self.title:
-			return '<img style="width:200px;height:auto;" src="/static/uploaded/%s"/>' % self.title
-		admin_image.short_description = 'Thumbnail'
-		admin_image.allow_tags = True
+			return '<img style="width:200px;height:auto;" src="/static/img/uploaded/%s"/>' % self.title
 		return "not an image"
+	admin_image.allow_tags = True
 
 class TextNode(models.Model):
 	title = models.CharField(max_length=600)
