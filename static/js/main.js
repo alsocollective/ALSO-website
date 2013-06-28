@@ -479,9 +479,10 @@ function initialize() {
 		center: new google.maps.LatLng(43.644989,-79.47587),
 		zoom: 13,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		overviewMapControl: false,
-		disableDefaultUI: true,
-		scrollwheel: true,
+		overviewMapControl: true,
+		disableDefaultUI: false,
+	    scrollwheel: false,
+
 		styles: styles
 	};
 
