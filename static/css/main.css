@@ -133,13 +133,15 @@ section {
 }
 
 .defaultstate #staticBackground:hover {
-	background-color: #000;
+	background-color: #fff;
 	transition-duration: 1s;
 	transition-timing-function: ease-in;
 }
 
 .navstate #staticBackground:hover {
-	background-color: #000;
+	background-color: #fff;
+	transition-duration: 1s;
+	transition-timing-function: ease-in;
 }
 
 
@@ -209,6 +211,16 @@ article iframe{
 
 .defaultstate #staticBackground{
 	margin-left: 0!important;
+	display: table;
+}
+
+.defaultstate h1 {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.defaultstate p {
+	display: none;
 }
 
 
@@ -475,13 +487,6 @@ process
 	clear: both;
 }
 
-
-
-
-
-
-
-
 .hiden{
 	display: none;
 }
@@ -499,20 +504,24 @@ process
 	overflow: hidden;
 }
 
-#globalNave:hover{
+/*#globalNave:hover{
 	background-color: #f00;
-}
+}*/
 
 #globalNave a{
 	/*padding: 0.5em;*/
-	width:100%;
+	width:100px;
+	height:100px;
+	display: block;
 	margin: 0 auto 0 auto;
+	padding-top: 5px;
 	text-align: center;
-	/*background-color: #fff;*/
+	text-transform: uppercase;
+	background-color: #f00;
 }
 
 #globalNave a:hover{
 	color: #fff;
-	background-color: none;
+	background-color: #fee;
 }
 
