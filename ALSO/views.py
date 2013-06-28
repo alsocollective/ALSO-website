@@ -81,7 +81,7 @@ def home(request):
 
 	listOfSlides = ["pixelPush",
 			"linesToPoint",
-			"Rline"]
+			"RLine"]
 	allContent.update({"days":days,"firstSlide":listOfSlides[random.randint(0,len(listOfSlides)-1)]})
 
 	return render_to_response('index.html',{'allContent':allContent})
