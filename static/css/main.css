@@ -494,9 +494,9 @@ process
 }
 
 .instaPic div div:hover{
-	background-color: #000;
+	background-color: #f0f;
 	color:#fff;
-	opacity: 1;
+	opacity: 0.6;
 }
 
 .instaPic h1{
