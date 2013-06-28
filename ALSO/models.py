@@ -38,6 +38,12 @@ class ImageNode(models.Model):
 		return "not an image"
 	admin_image.allow_tags = True
 
+	def admin_video(self):
+		if self.video:
+			return '<iframe src="%s?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>' % self.video
+		return "not an video"
+	admin_video.allow_tags = True
+
 class TextNode(models.Model):
 	title = models.CharField(max_length=600)
 	backgroundImage = models.ManyToManyField(ImageNode, blank=True, related_name="bkImage+")

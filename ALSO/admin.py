@@ -23,7 +23,7 @@ class ArticleAdmin(admin.ModelAdmin):
 	]
 
 class Image(admin.ModelAdmin):
-	list_display = ('title', 'order','admin_image',)
+	list_display = ('title', 'order','admin_image','admin_video')
 	fieldsets = [
 		(None,{'fields':['location','video','url','order']}),
 		('Advance options', {
