@@ -1,4 +1,4 @@
-if(google || document.getElementById("map-canvas")){
+if(google && document.getElementById("map-canvas")){
 	console.log("we got here");
 	google.maps.event.addDomListener(window, 'load', initialize);
 }
@@ -32,12 +32,14 @@ window.onload = function(){
 	$(document.getElementById("globalNave").childNodes[0]).bind("click",function(event){
 		event.preventDefault();
 
-		var newSplash = document.createElement("iframe");
-		newSplash.src = splashsrc;
-		newSplash.width = "100%";
-		newSplash.height = "100%";
-		newSplash.id = "splashFrame";
-		document.getElementById("splash").appendChild(newSplash);
+		if(splashsrc){
+			var newSplash = document.createElement("iframe");
+			newSplash.src = splashsrc;
+			newSplash.width = "100%";
+			newSplash.height = "100%";
+			newSplash.id = "splashFrame";
+			document.getElementById("splash").appendChild(newSplash);
+		}
 		setTimeout(function(){
 			workObject.resetSize();
 			aboutObject.resetSize();
@@ -129,7 +131,7 @@ function setupWork(paerentID){
 	}
 
 	function setBackgroundActive(){
-		if(parentNode.id=="about"){
+		if(parentNode.id=="about" && document.getElementById("map-canvas")){
 			setTimeout(function(){
 				document.getElementById("map-canvas").style.height = $("#map-canvas").parent().height();
 				google.maps.event.trigger(map, 'resize');
@@ -204,17 +206,18 @@ function setupWork(paerentID){
 		for(var a = 0; a < children.length; ++a){
 			if(children[a].nodeType == 1 && children[a].id != "workButton"){
 				var possibleWidth;
-				console.log(children[a]);
+				console.log(children[a],children[a].id);
 				if(catName == "work"){
 					possibleWidth = findCildWidth(children[a],slideWidth,1,"first");
 				} else {
 					possibleWidth = findCildWidth(children[a],slideWidth,1,"normal");
 				}
-
+				console.log("psWidth",possibleWidth);
 				if( possibleWidth ){
-					children[a].style.width = possibleWidth;
+					console.log("apply",children[a].id)
+					children[a].style.width = possibleWidth+"px";
 				} else {
-					children[a].style.width = slideWidth;
+					children[a].style.width = slideWidth+"px";
 				}
 
 				thisSlideWidth = children[a].offsetWidth;
@@ -222,12 +225,12 @@ function setupWork(paerentID){
 				size += thisSlideWidth + offsetBetween;
 
 			} else if(children[a].nodeType == 1 && children[a].id == "workButton"){
-				children[a].style.width = staticWidth*0.125;
+				children[a].style.width = staticWidth*0.125+"px";
 				size += staticWidth*0.125;
 			}
 		}
 		backgroundElement.style.width = offsetBetween/4 +"px";
-		titleBackground.parentNode.style.marginLeft = offsetBetween/4;
+		titleBackground.parentNode.style.marginLeft = offsetBetween/4+"px";
 		widthOfSliding.style.width = Math.ceil(size)+10 +"px";
 
 	//setting the navigation up
@@ -250,26 +253,26 @@ function setupWork(paerentID){
 		var returnSize = 0;
 		if(type == "normal"){
 			for(var a = 0; a < funcChildren.length; ++a){
-				funcChildren[a].style.width = setWidth*percentOfOriginal;
-				funcChildren[a].style.minWidth = setWidth*percentOfOriginal;
+				funcChildren[a].style.width = setWidth*percentOfOriginal+"px";
+				funcChildren[a].style.minWidth = setWidth*percentOfOriginal+"px";
 				returnSize += setWidth*percentOfOriginal;
 			}
 		} else if(type == "first"){
 			for(var a = 0; a < funcChildren.length; ++a){
 				if(a == 0){
-					funcChildren[a].style.width = setWidth*percentOfOriginal/2;
-					funcChildren[a].style.minWidth = setWidth*percentOfOriginal/2;
+					funcChildren[a].style.width = setWidth*percentOfOriginal/2+"px";
+					funcChildren[a].style.minWidth = setWidth*percentOfOriginal/2+"px";
 					returnSize += setWidth*percentOfOriginal/2;
 				} else {
-					funcChildren[a].style.width = setWidth*percentOfOriginal;
+					funcChildren[a].style.width = setWidth*percentOfOriginal+"px";
 					funcChildren[a].style.minWidth = setWidth*percentOfOriginal;
 					returnSize += setWidth*percentOfOriginal;
 				}
 			}
 		} else if(type == "all"){
 			for(var a = 0; a < funcChildren.length; ++a){
-					funcChildren[a].style.width = setWidth*percentOfOriginal/2;
-					funcChildren[a].style.minWidth = setWidth*percentOfOriginal/2;
+					funcChildren[a].style.width = setWidth*percentOfOriginal/2+"px";
+					funcChildren[a].style.minWidth = setWidth*percentOfOriginal/2+"px";
 					returnSize += setWidth*percentOfOriginal/2;
 			}
 		}
