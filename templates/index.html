@@ -79,13 +79,13 @@
 
 				<h1>{{article.title|safe}}</h1>
 
-				<!-- <p class="positionBottom">{{article.text.0.text}}</p> -->
 				{% elif article.people %}{% for text in article.text %}<div class="page">
 						<div class="background fullAbsolute" style="background-image: url('/static/img/uploaded/{{text.bkImage}}')">
+							
+							<p>{{text.text|safe}}</p>
+							
 						</div>
 						<h1>{{text.title|safe}}</h1>
-
-						<p>{{text.text|safe}}</p>
 
 					</div>{% endfor %}{% else %}
 
