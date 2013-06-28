@@ -56,9 +56,9 @@ p {
 
 a {
 	position:relative;
-	text-decoration:none;
+	text-decoration:underline;
 	font-size:inherit;
-	color:inherit;
+	color:#000;
 }
 
 a:hover{
@@ -128,7 +128,7 @@ section {
 
 .navList li{
 	width: 100%;
-	
+	overflow: hidden;
 	/*background-color: #fcc;*/
 }
 
@@ -145,6 +145,7 @@ section {
 	padding: 0;
 	width: 90%;
 	text-align: right;
+	white-space: nowrap;
 	
 	transition: all;
 	transition-duration: 0.5s;
@@ -168,14 +169,20 @@ section {
 
 .defaultstate #staticBackground:hover {
 	background-color: #fff;
+	transition: all;
 	transition-duration: 1s;
 	transition-timing-function: ease-in;
 }
 
 .navstate #staticBackground:hover {
 	background-color: #fff;
+	transition: all;
 	transition-duration: 1s;
 	transition-timing-function: ease-in;
+}
+
+.navstate #about #staticBackground:hover h1{
+	color: #33ccff;
 }
 
 .navstate #staticBackground {
@@ -259,10 +266,19 @@ article iframe{
 }
 
 #staticBackground h1{
-	transition: margin 1s, font-size 1s;
+	/*transition: margin 1s, font-size 1s;
 	-moz-transition: margin 1s, font-size 1s;
 	-webkit-transition: margin 1s, font-size 1s;
-	-o-transition: margin 1s, font-size 1s;
+	-o-transition: margin 1s, font-size 1s;*/
+	
+	transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+		
+	transform: rotate(0deg);
+	-ms-transform: rotate(0deg); /* IE 9 */
+	-webkit-transform: rotate(0deg); /* Safari and Chrome */
 }
 
 .defaultstate #staticBackground{
@@ -560,11 +576,19 @@ PURPLE: #ff66cc
 .activestate #staticBackground h1{
 	color: #fff;
 	
-	font-size: 5em;
+	font-size: 10em;
 	
-	transform: rotate(45deg);
-	-ms-transform: rotate(45deg); /* IE 9 */
-	-webkit-transform: rotate(45deg); /* Safari and Chrome */
+	transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	
+	width: 65%;
+	height: 45%;
+	
+	transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg); /* IE 9 */
+	-webkit-transform: rotate(-45deg); /* Safari and Chrome */
 }
 
 
