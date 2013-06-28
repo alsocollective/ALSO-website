@@ -1,6 +1,3 @@
-if(google && document.getElementById("map-canvas")){
-	google.maps.event.addDomListener(window, 'load', initialize);
-}
 var workObject, aboutObject, processObject;
 var screenIsMoving = false;
 var objectList = [];
@@ -71,7 +68,6 @@ var	toLoadWork = true;
 function loadwork(){
 	if(toLoadWork){
 		toLoadWork = false;
-		console.log("loading work");
 		$.getJSON('/data/', function(data) {
 			var projects = $(".articles");
 			data = data["articles"];
@@ -93,6 +89,21 @@ function loadwork(){
 					}
 				});
 			});
+		});
+	}
+}
+
+var toLoadAbout = true;
+function loadAbout(){
+	if(toLoadAbout){
+		toLoadAbout = false;
+		console.log("loading about");
+		$.getJSON('/adata/', function(data) {
+			var children = $(".biodesc");
+			children.each(function(index){
+				children[index].parentNode.style.backgroundImage = "url('/static/img/uploaded/"+ data[index]["bkImage"] +"')";
+			})
+			//style="background-image: url('/static/img/uploaded/{{text.bkImage}}')"
 		});
 	}
 }
@@ -169,6 +180,14 @@ function setupWork(paerentID){
 		}
 		if(toLoadWork && parentNode.id=="work"){
 			setTimeout(loadwork, 1000);
+		}
+		if(toLoadAbout && parentNode.id=="about"){
+			setTimeout(function(){
+				loadAbout();
+				if(google && document.getElementById("map-canvas")){
+					google.maps.event.addDomListener(window, 'load', initialize);
+				}
+			},1000);
 		}
 		$(parentNode).removeClass("navstate");
 		$(parentNode).removeClass("defaultstate");
@@ -427,7 +446,7 @@ function goToThisEndPoint(location,offset){
 
 	body.animate({scrollLeft : bodyOffset + left - (offset/2)},1000);
 	setTimeout(function(){
-		setHashTag(location);
+//		setHashTag(location);
 	},1100);
 }
 

@@ -82,7 +82,7 @@
 				<h1>{{article.title|safe}}</h1>
 
 				{% elif article.people %}{% for text in article.text %}<span class="page">
-						<div class="background fullAbsolute" style="background-image: url('/static/img/uploaded/{{text.bkImage}}')">
+						<div class="background fullAbsolute">
 							<div class="biodesc">{{text.text|safe}}</div>
 						</div>
 						<h1>{{text.title|safe}}</h1>

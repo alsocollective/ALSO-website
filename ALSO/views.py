@@ -108,23 +108,35 @@ def workData(request):
 	return HttpResponse(json.dumps(response_data), mimetype="application/json")
 
 def aboutData(request):
-	articles = Article.objects.all().order_by('-date').filter(category = Category.objects.all().filter(slug="about")[0])
-	artList = []
-	for article in articles:
-		artObj = {"title":article.title,"slug":article.slug,article.slug:"yep"}
+	article = Article.objects.all().filter(slug = "people")[0]
+	artObj = {"title":article.title,"slug":article.slug,article.slug:"yep"}
 
-		imageList = []
-		for image in article.imageFields.all().order_by('order'):
-			imageObj = {"title":image.title}
-			if image.video:
-				imageObj.update({"link":image.video})
-			imageList.append(imageObj)
-		artObj.update({"image":imageList})
-		artList.append(artObj);
+	textList = []
+	for text in article.textFields.all().order_by('-date'):
+		textObj = {"title":text.title}
+		for image in text.backgroundImage.all():
+			textObj.update({"bkImage":image.title})
+		textList.append(textObj)
 
-	response_data = {"articles":artList}
-	return HttpResponse(json.dumps(response_data), mimetype="application/json")
+	response_data = {"articles":textList}
+	return HttpResponse(json.dumps(textList), mimetype="application/json")
 
+
+def instaData(request):
+	article = Article.objects.all().filter(slug = "instagram")[0]
+	artObj = {"title":article.title,"slug":article.slug,article.slug:"yep"}
+	print article.textFields.all()
+	print article.imageFields.all()
+
+	textList = []
+	for text in article.textFields.all().order_by('-date'):
+		textObj = {"title":text.title}
+		for image in text.backgroundImage.all():
+			textObj.update({"bkImage":image.title})
+		textList.append(textObj)
+
+	response_data = {"articles":textList}
+	return HttpResponse(json.dumps(textList), mimetype="application/json")
 
 
 def pureData(request):
