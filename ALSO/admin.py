@@ -23,8 +23,9 @@ class ArticleAdmin(admin.ModelAdmin):
 	]
 
 class Image(admin.ModelAdmin):
+	list_display = ('title', 'order')
 	fieldsets = [
-		(None,{'fields':['location','video']}),
+		(None,{'fields':['location','video','url','order']}),
 		('Advance options', {
 			'classes':('collapse',),
 			'fields':('description','title')
