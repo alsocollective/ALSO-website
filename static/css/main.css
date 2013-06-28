@@ -13,7 +13,7 @@ html,body{
 }
 
 body {
-	background-color:#bcd;
+	/*background-color:#bcd;*/
 	font-size: 1em;
 	line-height: 1.4;
 	font-family:"Raisonne Demibold", 'Century Gothic', Verdana, sans-serif; font-size-adjust:0.5; font-weight:600; font-style:normal;
@@ -26,6 +26,28 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+body {
+	  /* fallback */
+	  background-color: #1a82f7;
+	  background-image: url(images/linear_bg_1.png);
+	  background-repeat: repeat-y;
+
+	  /* Safari 4-5, Chrome 1-9 */
+	  background: -webkit-gradient(linear, left top, right top, from(#1a82f7), to(#2F2727));
+
+	  /* Safari 5.1, Chrome 10+ */
+	  background: -webkit-linear-gradient(left, #33ccff, #fff);
+
+	  /* Firefox 3.6+ */
+	  background: -moz-linear-gradient(left, #2F2727, #1a82f7);
+
+	  /* IE 10 */
+	  background: -ms-linear-gradient(left, #2F2727, #1a82f7);
+
+	  /* Opera 11.10+ */
+	  background: -o-linear-gradient(left, #2F2727, #1a82f7);
 }
 
 p {
