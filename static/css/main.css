@@ -35,19 +35,19 @@ body {
 	  background-repeat: repeat-y;
 
 	  /* Safari 4-5, Chrome 1-9 */
-	  background: -webkit-gradient(linear, left top, right top, from(#1a82f7), to(#2F2727));
+	  background: -webkit-gradient(linear, left top, right top, from(#33ccff), to(#fff));
 
 	  /* Safari 5.1, Chrome 10+ */
 	  background: -webkit-linear-gradient(left, #33ccff, #fff);
 
 	  /* Firefox 3.6+ */
-	  background: -moz-linear-gradient(left, #2F2727, #1a82f7);
+	  background: -moz-linear-gradient(left, #33ccff, #fff);
 
 	  /* IE 10 */
-	  background: -ms-linear-gradient(left, #2F2727, #1a82f7);
+	  background: -ms-linear-gradient(left, #33ccff, #fff);
 
 	  /* Opera 11.10+ */
-	  background: -o-linear-gradient(left, #2F2727, #1a82f7);
+	  background: -o-linear-gradient(left, #33ccff, #fff);
 }
 
 p {
@@ -581,12 +581,12 @@ process
 
 #globalNave{
 	position: fixed;
-	left: -50;
+	left: -52;
 	bottom: -50px;
-	width: 100px;
+	width: 110px;
 	height: 100px;
-	transform: rotate(7deg);
-	-ms-transform: rotate(7deg); /* IE 9 */
+	transform: rotate(45deg);
+	-ms-transform: rotate(45deg); /* IE 9 */
 	-webkit-transform: rotate(45deg); /* Safari and Chrome */
 	background-color: none;
 	overflow: hidden;
