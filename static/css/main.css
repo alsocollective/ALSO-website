@@ -145,6 +145,18 @@ section {
 	transition-timing-function: ease-in;
 }
 
+.navstate #staticBackground {
+	margin-left: 0!important;
+}
+
+.navstate h1{
+	margin: 0;
+	font-size: 2em;
+}
+
+.navstate p{
+	display: none;
+}
 
 
 #splash{
