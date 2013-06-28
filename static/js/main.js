@@ -115,6 +115,8 @@ function setupWork(paerentID){
 		if(!$(parentNode).hasClass("activestate")){
 			$(parentNode).addClass("activestate");
 		}
+		console.log("map should be resized");
+		google.maps.event.trigger(map, 'resize');
 	}
 	function setBackgroundDefault(){
 		$(parentNode).removeClass("navstate");
@@ -349,7 +351,6 @@ function setupWork(paerentID){
 	}
 }
 
-
 function addEvent(link, endPoint, offset){
 	$(link).unbind();
 	$(link).bind('click', function(event){
@@ -443,7 +444,7 @@ function isParent(el){
 	}
 }
 
-
+var map;
 function initialize() {
 	var styles =
 		[
@@ -480,14 +481,17 @@ function initialize() {
 		styles: styles
 	};
 
-	var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-	var marker = new google.maps.Marker({
-		position: new google.maps.LatLng(43.644989,-79.47587),
-		map: map,
-		icon: "logo.png",
-		title: "bam"
-	});
+	// var marker = new google.maps.Marker({
+	// 	position: new google.maps.LatLng(43.644989,-79.47587),
+	// 	map: map,
+	// 	icon: "logo.png",
+	// 	title: "bam"
+	// });
 
-	google.maps.event.trigger(map, 'resize')
+	document.getElementById("map-canvas").style.height = "500px";
+	setTimeout(function(){
+		document.getElementById("map-canvas").style.height = "100%";
+	},100);
 }
