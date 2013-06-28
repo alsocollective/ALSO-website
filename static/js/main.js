@@ -1,3 +1,7 @@
+if(google && document.getElementById("map-canvas")){
+	console.log("tried to lad the maps");
+	google.maps.event.addDomListener(window, 'load', initialize);
+}
 var workObject, aboutObject, processObject;
 var screenIsMoving = false;
 var objectList = [];
@@ -184,9 +188,6 @@ function setupWork(paerentID){
 		if(toLoadAbout && parentNode.id=="about"){
 			setTimeout(function(){
 				loadAbout();
-				if(google && document.getElementById("map-canvas")){
-					google.maps.event.addDomListener(window, 'load', initialize);
-				}
 			},1000);
 		}
 		$(parentNode).removeClass("navstate");
