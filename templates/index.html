@@ -73,7 +73,7 @@
 						</p>
 					</div>{% endfor %}{% for image in article.image %}<div class="page background" style="background-image: url('/static/img/uploaded/{{image.title}}')">
 					{%if image.link%}
-						<iframe src="{{image.link}}" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+						<iframe src="{{image.link}}?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="500" height="331" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 					{%endif%}
 					</div>{% endfor %}</article>{% endfor %}
 			</div>
