@@ -32,6 +32,13 @@ class ImageNode(models.Model):
 	def __unicode__(self):
 		return self.title
 
+	def admin_image(self):
+		if self.title:
+			return '<img style="width:200px;height:auto;" src="/static/uploaded/%s"/>' % self.title
+		admin_image.short_description = 'Thumbnail'
+		admin_image.allow_tags = True
+		return "not an image"
+
 class TextNode(models.Model):
 	title = models.CharField(max_length=600)
 	backgroundImage = models.ManyToManyField(ImageNode, blank=True, related_name="bkImage+")

@@ -81,7 +81,7 @@ def home(request):
 		day.update({"posts":postOut})
 		days.append(day)
 
-	listOfSlides = ["pixelPush",
+	listOfSlides = [#"pixelPush",
 			"linesToPoint",
 			"RLine"]
 	allContent.update({"days":days,"firstSlide":listOfSlides[random.randint(0,len(listOfSlides)-1)]})
@@ -91,6 +91,24 @@ def home(request):
 
 def workData(request):
 	articles = Article.objects.all().order_by('-date').filter(category = Category.objects.all().filter(slug="work")[0])
+	artList = []
+	for article in articles:
+		artObj = {"title":article.title,"slug":article.slug,article.slug:"yep"}
+
+		imageList = []
+		for image in article.imageFields.all().order_by('order'):
+			imageObj = {"title":image.title}
+			if image.video:
+				imageObj.update({"link":image.video})
+			imageList.append(imageObj)
+		artObj.update({"image":imageList})
+		artList.append(artObj);
+
+	response_data = {"articles":artList}
+	return HttpResponse(json.dumps(response_data), mimetype="application/json")
+
+def aboutData(request):
+	articles = Article.objects.all().order_by('-date').filter(category = Category.objects.all().filter(slug="about")[0])
 	artList = []
 	for article in articles:
 		artObj = {"title":article.title,"slug":article.slug,article.slug:"yep"}

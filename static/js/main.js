@@ -51,8 +51,6 @@ window.onload = function(){
 		aboutObject.resetSize(true);
 		processObject.resetSize(true);
 
-		setTimeout(loadwork , 1000);
-
 		setTimeout(function(){
 			var hash = window.location.hash;
 			if(hash){
@@ -69,10 +67,10 @@ window.onload = function(){
 
 }
 
-var	toLoadWork = false;
+var	toLoadWork = true;
 function loadwork(){
-	if(!toLoadWork){
-		toLoadWork = true;
+	if(toLoadWork){
+		toLoadWork = false;
 		console.log("loading work");
 		$.getJSON('/data/', function(data) {
 			var projects = $(".articles");
@@ -168,6 +166,9 @@ function setupWork(paerentID){
 				document.getElementById("map-canvas").style.height = $("#map-canvas").parent().height();
 				google.maps.event.trigger(map, 'resize');
 			},1100);
+		}
+		if(toLoadWork && parentNode.id=="work"){
+			setTimeout(loadwork, 1000);
 		}
 		$(parentNode).removeClass("navstate");
 		$(parentNode).removeClass("defaultstate");
