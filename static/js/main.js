@@ -482,7 +482,7 @@ function initialize() {
 		overviewMapControl: true,
 		disableDefaultUI: true,
 	    scrollwheel: false,
-		styles: styles,
+		//styles: styles,
 		
 		zoomControl: true,
 		zoomControlOptions: {
@@ -498,7 +498,6 @@ function initialize() {
 	var marker = new google.maps.Marker({
 		position: new google.maps.LatLng(43.650153,-79.397196),
 		map: map,
-		icon: "logo.png",
 		title: "bam"
 	});
 }
