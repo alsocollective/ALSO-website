@@ -133,13 +133,15 @@ section {
 }
 
 .defaultstate #staticBackground:hover {
-	background-color: #000;
+	background-color: #fff;
 	transition-duration: 1s;
 	transition-timing-function: ease-in;
 }
 
 .navstate #staticBackground:hover {
-	background-color: #000;
+	background-color: #fff;
+	transition-duration: 1s;
+	transition-timing-function: ease-in;
 }
 
 
@@ -209,6 +211,16 @@ article iframe{
 
 .defaultstate #staticBackground{
 	margin-left: 0!important;
+	display: table;
+}
+
+.defaultstate h1 {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.defaultstate p {
+	display: none;
 }
 
 
