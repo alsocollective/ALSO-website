@@ -21,6 +21,10 @@ class ImageNode(models.Model):
 
 	title = models.CharField(max_length=600,blank=True)#,default=titleName)
 	video = models.URLField(max_length=1000, blank=True);
+	url = models.URLField(max_length=1000, blank=True);
+	date = models.DateField(auto_now=False,blank=True,null=True)
+	order = models.IntegerField(blank=True,default=0)
+
 	def save(self, *args, **kwargs):
 		self.title = os.path.basename(self.location.name)
 		super(ImageNode, self).save(*args, **kwargs)

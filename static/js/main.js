@@ -194,7 +194,7 @@ function setupWork(paerentID){
 
 		offsetBetween = windowWidth*0.8;
 
-		if(formatOfDivs == "instegram"){
+		if(formatOfDivs == "instegram"){ 
 			var windowHeight = $(window).height()*0.90/2;
 			slideWidth = windowHeight;//$("#process").height()/2;
 		}
@@ -204,6 +204,7 @@ function setupWork(paerentID){
 		for(var a = 0; a < children.length; ++a){
 			if(children[a].nodeType == 1 && children[a].id != "workButton"){
 				var possibleWidth;
+				console.log(children[a]);
 				if(catName == "work"){
 					possibleWidth = findCildWidth(children[a],slideWidth,1,"first");
 				} else {

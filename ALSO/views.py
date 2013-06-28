@@ -27,7 +27,7 @@ def home(request):
 				textList.append(textObj)
 ## images
 			imageList = []
-			for image in article.imageFields.all():
+			for image in article.imageFields.all().order_by('order'):
 				imageObj = {"title":image.title}
 				if image.video:
 					imageObj.update({"link":image.video})
