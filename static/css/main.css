@@ -177,10 +177,10 @@ section {
 	transition-timing-function:linear;
 	
 }
-.navList li a:active{
+/*.navList li a:active{
 	background-color: #f00;
 	width: 100%;
-}
+}*/
 
 .defaultstate #staticBackground:hover {
 	background-color: #eee;
@@ -684,13 +684,13 @@ process
 }
 
 #globalNave a:hover{
-	color: #fff;
-	background-color: #9933ff;
+	color: #ff3399;
+	background-color: #fff;
 }
 
 /*
 BLUE: #33ccff
 YELLOW: #e6dc5a
-PURPLE: #ff66cc
+PURPLE: #ff3399
 OTHER PURPLE: #9933ff
 */
