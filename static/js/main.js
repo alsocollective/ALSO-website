@@ -1,5 +1,4 @@
 google.maps.event.addDomListener(window, 'load', initialize);
-google.maps.event.trigger(map, 'resize')
 
 var workObject, aboutObject, processObject;
 var screenIsMoving = false;
@@ -490,4 +489,5 @@ function initialize() {
 		title: "bam"
 	});
 
+	google.maps.event.trigger(map, 'resize')
 }
