@@ -58,7 +58,7 @@ a {
 	position:relative;
 	text-decoration:underline;
 	font-size:inherit;
-	color:#000;
+	color:#fff;
 }
 
 a:hover{
@@ -115,7 +115,7 @@ section {
 
 
 
-.navList{
+.navList {
 	margin: 0px;
 	font-size: 1.5em;
 	font-weight: bold;
@@ -145,15 +145,28 @@ section {
 	padding: 0;
 	width: 90%;
 	text-align: right;
-	white-space: nowrap;
+	
+	text-decoration:none;
 	
 	transition: all;
 	transition-duration: 0.5s;
 	transition-timing-function: linear;
 }
 
+#work .navList li a:hover{
+	color: #9933ff;
+}
+
+#about .navList li a:hover{
+	color: #33ccff;
+}
+
+#process .navList li a:hover{
+	color: #e6dc5a;
+}
+
 .navList li a:hover{
-	background-color: #fcf;
+	background-color: #fff;
 	
 	width: 80%;
 	
@@ -168,22 +181,22 @@ section {
 }
 
 .defaultstate #staticBackground:hover {
-	background-color: #fff;
+	background-color: #eee;
 	transition: all;
 	transition-duration: 1s;
 	transition-timing-function: ease-in;
 }
 
 .navstate #staticBackground:hover {
-	background-color: #fff;
+	background-color: #eee;
 	transition: all;
 	transition-duration: 1s;
 	transition-timing-function: ease-in;
 }
 
-.defaultstate #about #staticBackground:hover{
-	color: #33ccff;
-}
+/*#about .defaultstate #staticBackground:hover{
+	color: #33ccff!important;
+}*/
 
 .navstate #staticBackground {
 	margin-left: 0!important;
@@ -378,7 +391,7 @@ h1 span{
 
 #work{
 	/*background-image: url("/static/img/background1.jpg");*/
-	background-color: #ff66cc;
+	background-color: #9933ff;
 	overflow: hidden;
 }
 
@@ -388,7 +401,7 @@ h1 span{
 
 #work article{
 	/*background-color: #98a;*/
-	background-color: #ff66cc;
+	background-color: #9933ff;
 }
 
 #widthOfWork{
@@ -397,7 +410,6 @@ h1 span{
 #contact{
 	height: 100%;
 }
-
 
 #workButton{
 	float: left;
@@ -454,12 +466,6 @@ h1 span{
 /*******************
 About
 *******************/
-
-/*
-BLUE: #33ccff
-YELLOW: #e6dc5a
-PURPLE: #ff66cc
-*/
 
 #about{
 	top: 33.33%;
@@ -668,6 +674,8 @@ process
 
 #globalNave a{
 	/*padding: 0.5em;*/
+	text-decoration:none;
+	color: #fff;
 	width:100px;
 	height:100px;
 	display: block;
@@ -675,11 +683,17 @@ process
 	padding-top: 5px;
 	text-align: center;
 	text-transform: uppercase;
-	background-color: none;
+	background-color: #33ccff;
 }
 
 #globalNave a:hover{
 	color: #fff;
-	background-color: #fee;
+	background-color: #9933ff;
 }
 
+/*
+BLUE: #33ccff
+YELLOW: #e6dc5a
+PURPLE: #ff66cc
+OTHER PURPLE: #9933ff
+*/
