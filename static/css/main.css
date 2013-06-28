@@ -181,7 +181,7 @@ section {
 	transition-timing-function: ease-in;
 }
 
-.navstate #about #staticBackground:hover h1{
+.defaultstate #about #staticBackground:hover{
 	color: #33ccff;
 }
 
