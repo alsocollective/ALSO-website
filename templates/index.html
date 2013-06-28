@@ -37,7 +37,7 @@
 
 <div id="splash">
 
-	<iframe src="static/splash/{{allContent.firstSlide}}/index.html" frameborder="0" id="splashFrame" width="100%" height="100%"></iframe>
+	<iframe src="static/splash/{{allContent.firstSlide}}/index.html" frameBorder="0" id="splashFrame" width="100%" height="100%"></iframe>
 
 	<h3>{% for article in allContent.About.artList %}{% if article.contact %}{{article.text.0.text|safe}}{% endif %}{% endfor %}</h3>
 </div>
@@ -59,7 +59,7 @@
 						</p>
 					</div>{% endfor %}{% for image in article.image %}<div class="page background" style="background-image: url('/static/img/uploaded/{{image.title}}')">
 					{%if image.link%}
-						<iframe src="{{image.link}}?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="500" height="331" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+						<iframe src="{{image.link}}?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="500" height="331" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 					{%endif%}
 					</div>{% endfor %}</article>{% endfor %}
 			</div>
