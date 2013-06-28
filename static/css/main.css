@@ -356,13 +356,19 @@ YELLOW: #e6dc5a
 }
 #about article{
 	/*background-color: #98a;*/
-	
+
 	background-color: #33ccff;
 }
 
 #about .fullAbsolute {
 	position: relative;
 }
+
+#map-canvas {
+	height: 100%;
+	width: 100%;
+}
+
 
 .positionBottom {
 	width: 100%;

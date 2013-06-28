@@ -1,3 +1,5 @@
+google.maps.event.addDomListener(window, 'load', initialize);
+
 var workObject, aboutObject, processObject;
 var screenIsMoving = false;
 var objectList = [];
@@ -439,4 +441,52 @@ function isParent(el){
 	} else {
 		return el;
 	}
+}
+
+
+function initialize() {
+	var styles =
+		[
+		{
+		"stylers": [
+		{ "visibility": "off" }
+		]
+		},{
+		"featureType": "landscape",
+		"elementType": "geometry",
+		"stylers": [
+		{ "visibility": "on" },
+		{ "saturation": 100 },
+		{ "hue": "#00ff11" },
+		{ "gamma": 0.38 }
+		]
+		},{
+		"featureType": "water",
+		"elementType": "geometry",
+		"stylers": [
+		{ "visibility": "on" },
+		{ "color": "#16cf8d" }
+		]
+		}
+		]
+
+	var mapOptions = {
+		center: new google.maps.LatLng(43.644989,-79.47587),
+		zoom: 13,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		overviewMapControl: false,
+		disableDefaultUI: true,
+		scrollwheel: true,
+		styles: styles
+	};
+
+	var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+	var marker = new google.maps.Marker({
+		position: new google.maps.LatLng(43.644989,-79.47587),
+		map: map,
+		icon: "logo.png",
+		title: "bam"
+	});
+
 }

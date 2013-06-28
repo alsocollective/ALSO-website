@@ -86,7 +86,8 @@
 				</ul>
 			</div><div id="widthOfWork"><a href="#about" class="invisibleButton" id="workButton"></a>{% for article in allContent.About.artList %}<article id="{{article.slug}}" class="project">{% if article.contact %}
 
-				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/?ie=UTF8&amp;ll=43.641044,-79.421282&amp;spn=0.049877,0.110378&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+				<div id="map-canvas"/>
+
 				<h1>{{article.title}}</h1>
 
 				<!-- <p class="positionBottom">{{article.text.0.text}}</p> -->
@@ -139,6 +140,7 @@
 <script src="/static/js/jquery-2.0.0.min.js"></script>
 <script src="/static/js/jquery.backstretch.min.js"></script>
 <script src="/static/js/dragdivscroll.js"></script>
+<script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsprgq2AfDNOAr9zdeizAbhG_FNGyP8-4&sensor=true"></script>
 <script src="/static/js/main.js"></script>
 
 </body>
