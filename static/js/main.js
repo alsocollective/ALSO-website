@@ -114,7 +114,7 @@ function setupWork(paerentID){
 			setTimeout(function(){
 				document.getElementById("map-canvas").style.height = $("#map-canvas").parent().height();
 				google.maps.event.trigger(map, 'resize');
-			},1000);
+			},1100);
 		}
 		$(parentNode).removeClass("navstate");
 		$(parentNode).removeClass("defaultstate");
@@ -479,9 +479,10 @@ function initialize() {
 		center: new google.maps.LatLng(43.644989,-79.47587),
 		zoom: 13,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		overviewMapControl: false,
-		disableDefaultUI: true,
-		scrollwheel: true,
+		overviewMapControl: true,
+		disableDefaultUI: false,
+	    scrollwheel: false,
+
 		styles: styles
 	};
 

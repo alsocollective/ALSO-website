@@ -56,58 +56,58 @@
 	<h3>{% for article in allContent.About.artList %}{% if article.contact %}{{article.text.0.text|safe}}{% endif %}{% endfor %}</h3>
 </div>
 <div id="contentWrapper"><section id="work"><div id="staticBackground">
-			<h1>{{allContent.Work.cat}}</h1>
-			<p>{{allContent.Work.description}}</p>
+			<h1>{{allContent.Work.cat|safe}}</h1>
+			<p>{{allContent.Work.description|safe}}</p>
 		</div><div class="slider" id="sWork"><div id="backgroundAREA">
 					<ul class="navList">
 						{% for article in allContent.Work.artList %}
-							<li><a href="#{{article.slug}}" name="{{article.slug}}">{{article.title}}</a></li>
+							<li><a href="#{{article.slug}}" name="{{article.slug}}">{{article.title|safe}}</a></li>
 						{% endfor %}
 					</ul>
 				</div><div id="widthOfWork"><a href="#work" id="workButton" class="invisibleButton">
 				</a>{% for article in allContent.Work.artList %}<article id="{{article.slug}}" class="project">{% for text in article.text %}<div id="halfPage" class="page">
 <!-- 						<img class="backgroundImage" src="/static/img/uploaded/{{text.bkImage}}">
- -->					<h1>{{article.title}}</h1>
+ -->					<h1>{{article.title|safe}}</h1>
 						<p>
-							{{text.text}}
+							{{text.text|safe}}
 						</p>
 					</div>{% endfor %}{% for image in article.image %}<div class="page background" style="background-image: url('/static/img/uploaded/{{image.title}}')">
 					</div>{% endfor %}</article>{% endfor %}
 			</div>
 		</div>
 	</section><section id="about"><div id="staticBackground">
-			<h1>{{allContent.About.cat}}</h1>
-			<p>{{allContent.About.description}}</p>
+			<h1>{{allContent.About.cat|safe}}</h1>
+			<p>{{allContent.About.description|safe}}</p>
 		</div><div class="slider" id="sAbout"><div id="backgroundAREA">
 				<ul class="navList">
 					{% for article in allContent.About.artList %}
-						<li><a href="#{{article.slug}}" name="{{article.slug}}">{{article.title}}</a></li>
+						<li><a href="#{{article.slug}}" name="{{article.slug}}">{{article.title|safe}}</a></li>
 					{% endfor %}
 				</ul>
 			</div><div id="widthOfWork"><a href="#about" class="invisibleButton" id="workButton"></a>{% for article in allContent.About.artList %}<article id="{{article.slug}}" class="project">{% if article.contact %}
 
 				<div id="map-canvas"/>
 
-				<h1>{{article.title}}</h1>
+				<h1>{{article.title|safe}}</h1>
 
 				<!-- <p class="positionBottom">{{article.text.0.text}}</p> -->
 				{% elif article.people %}{% for text in article.text %}<div class="page">
 						<div class="background fullAbsolute" style="background-image: url('/static/img/uploaded/{{text.bkImage}}')">
 						</div>
-						<h1>{{text.title}}</h1>
+						<h1>{{text.title|safe}}</h1>
 
-						<p>{{text.text}}</p>
+						<p>{{text.text|safe}}</p>
 
 					</div>{% endfor %}{% else %}
 
-					<h1>{{article.title}}</h1>
-					<p>{{article.text.0.text}}</p>
+					<h1>{{article.title|safe}}</h1>
+					<p>{{article.text.0.text|safe}}</p>
 
 				{% endif %}</article>{% endfor %}</div>
 		</div>
 	</section><section id="process"><div id="staticBackground">
-			<h1>{{allContent.Process.cat}}</h1>
-			<p>{{allContent.Process.description}}</p>
+			<h1>{{allContent.Process.cat|safe}}</h1>
+			<p>{{allContent.Process.description|safe}}</p>
 		</div><div id="sProcess" class="slider"><div id="backgroundAREA">
 				<ul>
 
@@ -117,17 +117,17 @@
 					<div>
 						<img src="{{c1.url}}">
 						<div>
-							{{c1.message}}<br>
-							{{c1.creator}}<br>
-							{{c1.date}}<br>
+							{{c1.message|safe}}<br>
+							{{c1.creator|safe}}<br>
+							{{c1.date|safe}}<br>
 						</div>
 					</div>
 					<div>
 						<img src="{{c2.url}}">
 						<div>
-							{{c2.message}}<br>
-							{{c2.creator}}<br>
-							{{c2.date}}<br>
+							{{c2.message|safe}}<br>
+							{{c2.creator|safe}}<br>
+							{{c2.date|safe}}<br>
 						</div>
 					</div>
 				</div>{% endfor %}</article></div>
