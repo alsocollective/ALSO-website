@@ -64,6 +64,7 @@ window.onload = function(){
 }
 
 $(window).bind("resize",function(){
+	console.log("this");
 	workObject.setSizeOfElements();
 	aboutObject.setSizeOfElements();
 	processObject.setSizeOfElements("instegram");
@@ -434,6 +435,9 @@ function getPageTopLeft(el) {
 }
 
 function findElementCat(el){
+	if(!el || el.tagName == "body" || el.tagName == "html"){
+		return false;
+	}
 	var element = el.parentNode;
 	var previouse = null;
 	while(true){
@@ -457,6 +461,9 @@ function findFirstEl(el){
 }
 
 function isParent(el){
+	if(!el || !el.tagName || el.tagName == "body" || el.tagName == "html"){
+		return false;
+	}
 	el = el.parentNode;
 	if(el.id == "contentWrapper"){
 		return false;

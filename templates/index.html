@@ -36,8 +36,7 @@
 <![endif]-->
 
 <div id="splash">
-
-	<iframe src="static/splash/{{allContent.firstSlide}}/index.html" frameBorder="0" id="splashFrame" width="100%" height="100%"></iframe>
+	<![if !IE]><iframe src="static/splash/{{allContent.firstSlide}}/index.html" frameBorder="0" id="splashFrame" width="100%" height="100%"></iframe><![endif]>
 
 	<h3>{% for article in allContent.About.artList %}{% if article.contact %}{{article.text.0.text|safe}}{% endif %}{% endfor %}</h3>
 </div>
