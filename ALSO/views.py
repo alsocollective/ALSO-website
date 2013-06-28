@@ -27,6 +27,8 @@ def home(request):
 			imageList = []
 			for image in article.imageFields.all():
 				imageObj = {"title":image.title}
+				if image.video:
+					imageObj.update({"link":image.video})
 				imageList.append(imageObj)
 ## instegram
 			instaList = []
