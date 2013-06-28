@@ -105,7 +105,10 @@ def getNewInstaPost(request):
 				break
 		if isItNew:
 			print "new %s" %link
-			text = image["caption"]["text"]
+			if image["caption"]:
+				text = image["caption"]["text"]
+			else:
+				text = "no caption"
 			user = image["caption"]["from"]["username"]
 			unixtimestamp = int(image["created_time"])
 			normalTS = datetime.fromtimestamp(unixtimestamp).strftime('%Y-%m-%d %H:%M:%S')
