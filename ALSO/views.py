@@ -105,13 +105,14 @@ def getNewInstaPost(request):
 				break
 		if isItNew:
 			print "new %s" %link
-			text = image["caption"]["text"]
-			user = image["caption"]["from"]["username"]
-			unixtimestamp = int(image["created_time"])
-			normalTS = datetime.fromtimestamp(unixtimestamp).strftime('%Y-%m-%d %H:%M:%S')
-			newImage = InstaPost.objects.create(message = text,url = link,date = normalTS,creator = user)
-			newImage.save()
-			instaArticle.instagramFields.add(newImage)
+			if image["caption"]:
+				text = image["caption"]["text"]
+				user = image["caption"]["from"]["username"]
+				unixtimestamp = int(image["created_time"])
+				normalTS = datetime.fromtimestamp(unixtimestamp).strftime('%Y-%m-%d %H:%M:%S')
+				newImage = InstaPost.objects.create(message = text,url = link,date = normalTS,creator = user)
+				newImage.save()
+				instaArticle.instagramFields.add(newImage)
 
 	instaArticle.save()
 

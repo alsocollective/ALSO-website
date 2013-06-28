@@ -447,27 +447,27 @@ function isParent(el){
 function initialize() {
 	var styles =
 		[
-		{
-		"stylers": [
-		{ "visibility": "off" }
-		]
-		},{
-		"featureType": "landscape",
-		"elementType": "geometry",
-		"stylers": [
-		{ "visibility": "on" },
-		{ "saturation": 100 },
-		{ "hue": "#00ff11" },
-		{ "gamma": 0.38 }
-		]
-		},{
-		"featureType": "water",
-		"elementType": "geometry",
-		"stylers": [
-		{ "visibility": "on" },
-		{ "color": "#16cf8d" }
-		]
-		}
+			{
+				"stylers": [
+				{ "visibility": "off" }
+				]
+			},{
+			"featureType": "landscape",
+			"elementType": "geometry",
+			"stylers": [
+			{ "visibility": "on" },
+			{ "saturation": 100 },
+			{ "hue": "#00ff11" },
+			{ "gamma": 0.38 }
+			]
+			},{
+			"featureType": "water",
+			"elementType": "geometry",
+			"stylers": [
+			{ "visibility": "on" },
+			{ "color": "#16cf8d" }
+			]
+			}
 		]
 
 	var mapOptions = {
@@ -489,4 +489,5 @@ function initialize() {
 		title: "bam"
 	});
 
+	google.maps.event.trigger(map, 'resize')
 }
