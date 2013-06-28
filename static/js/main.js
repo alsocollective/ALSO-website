@@ -114,7 +114,7 @@ function setupWork(paerentID){
 			setTimeout(function(){
 				document.getElementById("map-canvas").style.height = $("#map-canvas").parent().height();
 				google.maps.event.trigger(map, 'resize');
-			},1000);
+			},1100);
 		}
 		$(parentNode).removeClass("navstate");
 		$(parentNode).removeClass("defaultstate");
