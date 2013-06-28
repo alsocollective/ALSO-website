@@ -69,7 +69,7 @@ window.onload = function(){
 			var projects = $(".articles");
 			data = data["articles"];
 			projects.each(function(index){
-				console.log(projects[index],);
+				//console.log(projects[index],);
 			});
 			console.log("data",data);
 		});
