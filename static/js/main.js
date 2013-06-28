@@ -50,6 +50,9 @@ window.onload = function(){
 		workObject.resetSize(true);
 		aboutObject.resetSize(true);
 		processObject.resetSize(true);
+
+		setTimeout(loadwork , 1000);
+
 		setTimeout(function(){
 			var hash = window.location.hash;
 			if(hash){
@@ -63,17 +66,37 @@ window.onload = function(){
 		},100);
 	},1000);
 
-	setTimeout(function(){
 
+}
+
+var	toLoadWork = false;
+function loadwork(){
+	if(!toLoadWork){
+		toLoadWork = true;
+		console.log("loading work");
 		$.getJSON('/data/', function(data) {
 			var projects = $(".articles");
 			data = data["articles"];
-			projects.each(function(index){
-				//console.log(projects[index],);
+			var children;
+			projects.each(function(artLvl){
+				children = $(projects[artLvl]).children();
+				children.each(function(imgLvl){
+					if(data[artLvl]["image"][imgLvl]){
+						if(data[artLvl]["image"][imgLvl]["link"]){
+							var iframe = document.createElement("iframe");
+							iframe.src = data[artLvl]["image"][imgLvl]["link"]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179";
+							iframe.frameBorder = "0";
+							iframe.width = "100%;";
+							iframe.height = "100%;";
+							children[imgLvl+1].appendChild(iframe);
+						} else {
+							children[imgLvl+1].style.backgroundImage = "url('/static/img/uploaded/"+ data[artLvl]["image"][imgLvl]["title"] +"')";
+						}
+					}
+				});
 			});
-			console.log("data",data);
 		});
-	},200);
+	}
 }
 
 $(window).bind("resize",function(){
