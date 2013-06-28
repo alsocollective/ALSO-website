@@ -41,7 +41,7 @@ a {
 
 a:hover{
 	width: 100%;
-	background-color: #000;
+	/*background-color: #000;*/
 }
 
 h1 {
@@ -482,11 +482,31 @@ process
 
 #globalNave{
 	position: fixed;
-	left: 1%;
-	bottom: 0px;
+	left: -50;
+	bottom: -50px;
+	width: 100px;
+	height: 100px;
+	transform: rotate(7deg);
+	-ms-transform: rotate(7deg); /* IE 9 */
+	-webkit-transform: rotate(45deg); /* Safari and Chrome */
+	background-color: #fff;
+	overflow: hidden;
 }
+
+#globalNave:hover{
+	background-color: #f00;
+}
+
 #globalNave a{
-	padding: 0.5em;
+	/*padding: 0.5em;*/
+	width:100%;
+	margin: 0 auto 0 auto;
+	text-align: center;
 	/*background-color: #fff;*/
+}
+
+#globalNave a:hover{
+	color: #fff;
+	background-color: none;
 }
 
