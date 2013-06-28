@@ -1,6 +1,8 @@
+from django.http import HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 # from  ALSO.models import Project,Category,Page
 from ALSO.models import ImageNode, TextNode, Category ,Article, InstaPost, Post, Day
+
 
 import requests
 import json
@@ -87,6 +89,23 @@ def home(request):
 	return render_to_response('index.html',{'allContent':allContent})
 
 
+def workData(request):
+	articles = Article.objects.all().order_by('-date').filter(category = Category.objects.all().filter(slug="work")[0])
+	artList = []
+	for article in articles:
+		artObj = {"title":article.title,"slug":article.slug,article.slug:"yep"}
+
+		imageList = []
+		for image in article.imageFields.all().order_by('order'):
+			imageObj = {"title":image.title}
+			if image.video:
+				imageObj.update({"link":image.video})
+			imageList.append(imageObj)
+		artObj.update({"image":imageList})
+		artList.append(artObj);
+
+	response_data = {"articles":artList}
+	return HttpResponse(json.dumps(response_data), mimetype="application/json")
 
 
 

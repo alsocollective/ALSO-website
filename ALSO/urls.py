@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'ALSO.views.home', name='home'),
     url(r'^insta/','ALSO.views.getNewInstaPost'),
+    url(r'^data/','ALSO.views.workData'),
     #url(r'^basic/', 'ALSO.views.pureData', name='home'),
     # url(r'^ALSOwD/', include('ALSOwD.foo.urls')),
 
