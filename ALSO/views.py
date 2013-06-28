@@ -5,6 +5,8 @@ from ALSO.models import ImageNode, TextNode, Category ,Article, InstaPost, Post,
 import requests
 import json
 from datetime import datetime
+import random
+
 
 def home(request):
 	categories = Category.objects.all()
@@ -77,7 +79,10 @@ def home(request):
 		day.update({"posts":postOut})
 		days.append(day)
 
-	allContent.update({"days":days})
+	listOfSlides = ["pixelPush",
+			"linesToPoint",
+			"Rline"]
+	allContent.update({"days":days,"firstSlide":listOfSlides[random.randint(0,len(listOfSlides)-1)]})
 
 	return render_to_response('index.html',{'allContent':allContent})
 

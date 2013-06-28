@@ -1,8 +1,10 @@
-google.maps.event.addDomListener(window, 'load', initialize);
-
+if(google){
+	google.maps.event.addDomListener(window, 'load', initialize);
+}
 var workObject, aboutObject, processObject;
 var screenIsMoving = false;
 var objectList = [];
+var splashsrc;
 
 window.onload = function(){
 	//setpage();
@@ -28,9 +30,18 @@ window.onload = function(){
 
 	$(document.getElementById("globalNave").childNodes[0]).bind("click",function(event){
 		event.preventDefault();
-		workObject.resetSize();
-		aboutObject.resetSize();
-		processObject.resetSize();
+
+		var newSplash = document.createElement("iframe");
+		newSplash.src = splashsrc;
+		newSplash.width = "100%";
+		newSplash.height = "100%";
+		newSplash.id = "splashFrame";
+		document.getElementById("splash").appendChild(newSplash);
+		setTimeout(function(){
+			workObject.resetSize();
+			aboutObject.resetSize();
+			processObject.resetSize();
+		},250);
 	})
 
 	setTimeout(function(){
@@ -61,7 +72,6 @@ $(window).bind("resize",function(){
 function setupWork(paerentID){
 	//getting all the elements
 	var parentNode = document.getElementById(paerentID); //ver top element
-	console.log(parentNode);
 	var titleBackground = findFirstEl(parentNode.childNodes[0]);
 	var slidingElement = parentNode.childNodes[1];			//the sliding element
 	var backgroundElement = slidingElement.childNodes[0];// the background Element that is fixed
@@ -106,6 +116,13 @@ function setupWork(paerentID){
 			setTimeout(function(){
 				screenIsMoving = false;
 			},1000);
+		}
+		var splash = document.getElementById("splashFrame");
+		if(splash){
+			setTimeout(function(){
+				splashsrc = splash.src;
+				splash.parentNode.removeChild(splash);
+			}, 1000)
 		}
 	}
 
