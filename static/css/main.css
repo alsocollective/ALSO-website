@@ -134,14 +134,14 @@ section {
 .navList li h3{
 	margin: 0;
 	display: block;
-	padding: 1em 0em 1em 0em;
+	/*padding: 1em 0em 1em 0em;*/
 	width: 100%;
 	text-align: center;
 }
 
 .navList li a{
 	display: block;
-	padding: 1em 0em 1em 0em;
+	padding: 0;
 	width: 100%;
 	text-align: center;
 	
@@ -430,6 +430,7 @@ About
 /*
 BLUE: #33ccff
 YELLOW: #e6dc5a
+PURPLE: #ff66cc
 */
 
 #about{
@@ -500,19 +501,26 @@ YELLOW: #e6dc5a
 }
 
 #people .page p{
-	width: 100%;
-	margin: 1em auto 0 auto;
-	/*background-color: #fff;*/
+	width: 90%;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+	background-color: #33ccff;
+	font-size: 1.3em;
+	color: #fff;
+	line-height: 1.2em;
+	padding: 1em 5em 0 1em;
+	vertical-align: middle;
 }
 
 #people .page p:hover{
-	width: 100%;
-	margin: 1em auto 0 auto;
-	/*background-color: #fff;*/
+	opacity: 1;
 }
 
 
-
+.activestate #staticBackground h1{
+	color: #f00;
+}
 
 
 /*******************
