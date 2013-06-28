@@ -103,20 +103,18 @@
 				</ul>
 			</div><div id="widthOfWork"><a href="#process" id="workButton" class="invisibleButton">
 				</a><article class="project">{% for c1, c2 in allContent.Process.artList.0.insta %}<div class="page instaPic">
-					<div>
-						<img src="{{c1.url}}">
+					<div class="background" style="background-image: url('{{c1.url}}')">
 						<div>
 							{{c1.message|safe}}<br>
 							{{c1.creator|safe}}<br>
 							{{c1.date|safe}}<br>
 						</div>
 					</div>
-					<div>
-						<img src="{{c2.url}}">
+					<div class="background" style="background-image: url('{{c2.url}}')">
 						<div>
-							{{c2.message|safe}}<br>
-							{{c2.creator|safe}}<br>
-							{{c2.date|safe}}<br>
+							{{c1.message|safe}}<br>
+							{{c1.creator|safe}}<br>
+							{{c1.date|safe}}<br>
 						</div>
 					</div>
 				</div>{% endfor %}</article></div>
