@@ -128,15 +128,15 @@ def instaData(request):
 	print article.textFields.all()
 	print article.imageFields.all()
 
-	textList = []
-	for text in article.textFields.all().order_by('-date'):
-		textObj = {"title":text.title}
-		for image in text.backgroundImage.all():
-			textObj.update({"bkImage":image.title})
-		textList.append(textObj)
+	instaList = []
+	allInstaPosts = article.instagramFields.all().order_by('-date')
+	for i in xrange(0,len(allInstaPosts)-2,2):
+		subList = ({"message":allInstaPosts[i].message,
+					"url":allInstaPosts[i].url,
+					"url":allInstaPosts[i+1].url})
+		instaList.append(subList)
 
-	response_data = {"articles":textList}
-	return HttpResponse(json.dumps(textList), mimetype="application/json")
+	return HttpResponse(json.dumps(instaList), mimetype="application/json")
 
 
 def pureData(request):

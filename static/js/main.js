@@ -444,11 +444,12 @@ function goToThisEndPoint(location,offset){
 	var left = $(element).offset().left;
 	var body = $(element.parentNode.parentNode);
 	var bodyOffset = $(element.parentNode).offset().left*-1;
-
-	body.animate({scrollLeft : bodyOffset + left - (offset/2)},1000);
-	setTimeout(function(){
-//		setHashTag(location);
-	},1100);
+	body.scrollLeft(bodyOffset + left - (offset/2));
+	console.log(body);
+	//body.animate({scrollLeft : bodyOffset + left - (offset/2)},1000);
+// 	setTimeout(function(){
+// //		setHashTag(location);
+// 	},1100);
 }
 
 function setHashTag(newTag){
@@ -529,47 +530,31 @@ function isParent(el){
 
 var map;
 function initialize() {
-	var styles =
-		[
-			{
-				"stylers": [
-				{ "visibility": "off" }
-				]
-			},{
-			"featureType": "landscape",
-			"elementType": "geometry",
+	var styles =[
+		{
 			"stylers": [
-			{ "visibility": "on" },
-			{ "saturation": 100 },
-			{ "hue": "#00ff11" },
-			{ "gamma": 0.38 }
+				{ "hue": "#33ccff" }
 			]
-			},{
-			"featureType": "water",
-			"elementType": "geometry",
-			"stylers": [
-			{ "visibility": "on" },
-			{ "color": "#16cf8d" }
-			]
-			}
-		]
+		}
+	]
 
 	var mapOptions = {
 		center: new google.maps.LatLng(43.650153,-79.397196),
-		zoom: 13,
+		zoom: 17,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		overviewMapControl: true,
 		disableDefaultUI: true,
 	    scrollwheel: false,
-		//styles: styles,
-		
+		styles: styles,
+		backgroundColor:"33ccff",
+
 		zoomControl: true,
 		zoomControlOptions: {
 		        style: google.maps.ZoomControlStyle.LARGE,
 		        position: google.maps.ControlPosition.BOTTOM_LEFT
 			},
 	};
-	
+
 	google.maps.visualRefresh = true;
 
 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -577,6 +562,7 @@ function initialize() {
 	var marker = new google.maps.Marker({
 		position: new google.maps.LatLng(43.650153,-79.397196),
 		map: map,
-		title: "bam"
+		fillColor: "#e6dc5a",
+		title: "ALSO Collective"
 	});
 }
