@@ -110,16 +110,16 @@
 				</a><article class="project">{% for c1, c2 in allContent.Process.artList.0.insta %}<span class="page instaPic">
 					<div class="background" style="background-image: url('{{c1.url}}')">
 						<div>
-							{{c1.message|safe}}<br>
-							{{c1.creator|safe}}<br>
-							{{c1.date|safe}}<br>
+							{{c1.message|safe}}{# <br> #}
+{# 							{{c1.creator|safe}}<br> #}
+{# 							{{c1.date|safe}}<br> #}
 						</div>
 					</div>
 					<div class="background" style="background-image: url('{{c2.url}}')">
 						<div>
-							{{c1.message|safe}}<br>
-							{{c1.creator|safe}}<br>
-							{{c1.date|safe}}<br>
+							{{c1.message|safe}}{# <br> #}
+{# 							{{c1.creator|safe}}<br> #}
+{# 							{{c1.date|safe}}<br> #}
 						</div>
 					</div>
 				</span>{% endfor %}</article></div>
@@ -132,9 +132,11 @@
 <script src="/static/js/jquery-2.0.0.min.js"></script>
 <script src="/static/js/jquery.backstretch.min.js"></script>
 <script src="/static/js/dragdivscroll.js"></script>
+
 <script type="text/javascript">
 var google;
 </script>
+
 <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsprgq2AfDNOAr9zdeizAbhG_FNGyP8-4&sensor=true"></script>
 <script src="/static/js/main.js"></script>
 
@@ -150,6 +152,29 @@ WebFontConfig = { fontdeck: { id: '20418' } };
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(wf, s);
 })();
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = /*enhanced analytics*/
+   '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  
+  _gaq.push(['_setAccount', 'UA-37086718-1']);
+  _gaq.push(['_trackPageview']);
+  
+  $('#globalNave').click(function() { _gaq.push(['_trackEvent', 'Nav', 'Section Visit', 'Home']);});
+  $('#work').click(function() { _gaq.push(['_trackEvent', 'Nav', 'Section Visit', 'Work']);});
+  $('#about').click(function() { _gaq.push(['_trackEvent', 'Nav', 'Section Visit', 'About']);});
+  $('#process').click(function() { _gaq.push(['_trackEvent', 'Nav', 'Section Visit', 'About']);});
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
 </script>
 
 </body>
