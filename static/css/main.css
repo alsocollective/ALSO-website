@@ -251,11 +251,14 @@ article{
 	overflow: hidden;
 	/*background-color: #00d;*/
 	box-shadow: -2px 0px 30px #000;
+	color: #fff;
 }
 
 article h1{
 	/*background-color: #444;*/
 	position: relative;
+	margin: 0;
+	padding: 0 0 0 0.5em;
 }
 
 article:active{
@@ -334,9 +337,9 @@ h1 span{
 .page p{
 	position: relative;
 	padding: 0 1em 0 1em;
-	font-size: 1.3em;
+	font-size: 1em;
 	color: #fff;
-	line-height: 1.2em;
+	line-height: 1.3em;
 	margin: 0;
 }
 
@@ -601,11 +604,11 @@ About
 	margin: 0.5em 0 0 0;
 	padding: 0;
 	font-size: 1em;
-	line-height: 1em;
+	line-height: 1.3em;
 }
 
 .biodesc strong{
-	font-size: 0.6em;
+	font-size: 0.8em;
 	text-transform: uppercase;
 	color: #9933ff;
 }
