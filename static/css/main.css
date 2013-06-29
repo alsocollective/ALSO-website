@@ -655,6 +655,7 @@ process
 	float: left;
 	width: inherit;
 	height: 50%;
+	font-size: 1.5em;
 }
 
 .instaPic div img{
@@ -671,9 +672,9 @@ process
 }
 
 .instaPic div div:hover{
-	background-color: #f0f;
+	background-color: #33ccff;
 	color:#fff;
-	opacity: 0.6;
+	opacity: 0.8;
 }
 
 .instaPic h1{
@@ -716,6 +717,10 @@ process
 #globalNave a:hover{
 	color: #ff3399;
 	background-color: #fff;
+}
+
+.people-first {
+	text-align: left;	
 }
 
 /*
