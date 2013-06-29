@@ -135,7 +135,7 @@ function setupWork(paerentID){
 	}
 
 	//setting up the scroller and makeing a new instance of it
-	var WorkScroller = new DragDivScroll(slidingElement.id, "mouseWheelX");
+	var WorkScroller = new DragDivScroll(slidingElement.id, "mouseWheelX noOverscroll");
 
 	var isActiveElement = false;
 	var currentActiveIs;

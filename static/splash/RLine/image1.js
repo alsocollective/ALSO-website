@@ -53,6 +53,17 @@ window.onload = function(){
 
 }
 
+setTimeout(function(){
+	var canvasElement = document.getElementById("myCanvas");
+	if(canvasElement.height==0){
+		var height = window.innerHeight;
+		var width = window.innerWidth;
+		canvasElement.height = height;
+		canvasElement.width = width;
+		view.draw();
+	}
+},500)
+
 function zeroAndRandom(path, size){
 	for(var a = 0; a < path.length; ++a){
 		path[a].lastSegment.point.x = path[a].firstSegment.point.x+(Math.random()*size)-(size/2);
