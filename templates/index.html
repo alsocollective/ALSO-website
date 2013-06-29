@@ -83,7 +83,9 @@
 
 				{% elif article.people %}{% for text in article.text %}<span class="page">{%if forloop.first%}
 
-					<div>Bohdan was here!</div>
+					<h1>{{text.title|safe}}</h1>
+					<p>{{text.text|safe}}</p>
+
 				{%else%}
 						<div class="background fullAbsolute">
 							<div class="biodesc">{{text.text|safe}}</div>
