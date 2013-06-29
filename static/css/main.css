@@ -349,7 +349,7 @@ h1 span{
 
 .navstate .slider{
 	padding-top: 10%;
-	transition-duration: 1s;
+	/*transition-duration: 1s;*/
 }
 
 .slider{
@@ -359,7 +359,7 @@ h1 span{
 	position: relative;
 	z-index: -1;
 	padding: 0;
-	transition-duration: 1s;
+	/*transition-duration: 1s;*/
 }
 
 #backgroundAREA{
@@ -574,9 +574,9 @@ About
 	margin: 0;
 	opacity: 0;
 	background-color: #33ccff;
-	font-size: 1.3em;
+	/*font-size: 0.5em;*/
 	color: #fff;
-	line-height: 1.2em;
+	/*line-height: 1.2em;*/
 	padding: 1em 5em 0 1em;
 	vertical-align: middle;
 	position: relative;
@@ -588,6 +588,26 @@ About
 
 .biodesc:hover {
 	opacity: 1;
+}
+
+.biodesc h4{
+	font-size: 1.5em;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0;
+}
+
+.biodesc p{
+	margin: 0.5em 0 0 0;
+	padding: 0;
+	font-size: 1.4em;
+	line-height: 1.3em;
+}
+
+.biodesc strong{
+	font-size: 0.8em;
+	text-transform: uppercase;
+	color: #9933ff;
 }
 
 
@@ -701,6 +721,6 @@ process
 /*
 BLUE: #33ccff
 YELLOW: #e6dc5a
-PURPLE: #ff3399
+PINK: #ff3399
 OTHER PURPLE: #9933ff
 */
