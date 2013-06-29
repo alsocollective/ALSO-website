@@ -86,9 +86,9 @@ function loadwork(){
 							iframe.frameBorder = "0";
 							iframe.width = "100%;";
 							iframe.height = "100%;";
-							children[imgLvl].appendChild(iframe);
+							children[imgLvl+1].appendChild(iframe);
 						} else {
-							children[imgLvl].style.backgroundImage = "url('/static/img/uploaded/"+ data[artLvl]["image"][imgLvl]["title"] +"')";
+							children[imgLvl+1].style.backgroundImage = "url('/static/img/uploaded/"+ data[artLvl]["image"][imgLvl]["title"] +"')";
 						}
 					}
 				});
@@ -105,8 +105,10 @@ function loadAbout(){
 		$.getJSON('/adata/', function(data) {
 			var children = $(".biodesc");
 			children.each(function(index){
-				children[index].parentNode.style.backgroundImage = "url('/static/img/uploaded/"+ data[index]["bkImage"] +"')";
-			})
+				// if(index != 0){
+					children[index].parentNode.style.backgroundImage = "url('/static/img/uploaded/"+ data[index+1]["bkImage"] +"')";
+				// }
+			});
 			//style="background-image: url('/static/img/uploaded/{{text.bkImage}}')"
 		});
 	}
