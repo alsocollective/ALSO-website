@@ -444,11 +444,12 @@ function goToThisEndPoint(location,offset){
 	var left = $(element).offset().left;
 	var body = $(element.parentNode.parentNode);
 	var bodyOffset = $(element.parentNode).offset().left*-1;
-
-	body.animate({scrollLeft : bodyOffset + left - (offset/2)},1000);
-	setTimeout(function(){
-//		setHashTag(location);
-	},1100);
+	body.scrollLeft(bodyOffset + left - (offset/2));
+	console.log(body);
+	//body.animate({scrollLeft : bodyOffset + left - (offset/2)},1000);
+// 	setTimeout(function(){
+// //		setHashTag(location);
+// 	},1100);
 }
 
 function setHashTag(newTag){

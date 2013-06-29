@@ -81,13 +81,16 @@
 
 				<h1>{{article.title|safe}}</h1>
 
-				{% elif article.people %}{% for text in article.text %}<span class="page">
+				{% elif article.people %}{% for text in article.text %}<span class="page">{%if forloop.first%}
+
+					<div>Bohdan was here!</div>
+				{%else%}
 						<div class="background fullAbsolute">
 							<div class="biodesc">{{text.text|safe}}</div>
 						</div>
 						<h1>{{text.title|safe}}</h1>
 
-					</span>{% endfor %}{% else %}
+					{%endif%}</span>{% endfor %}{% else %}
 
 					<h1>{{article.title|safe}}</h1>
 					<p>{{article.text.0.text|safe}}</p>
