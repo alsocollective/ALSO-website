@@ -86,9 +86,9 @@ function loadwork(){
 							iframe.frameBorder = "0";
 							iframe.width = "100%;";
 							iframe.height = "100%;";
-							children[imgLvl+1].appendChild(iframe);
+							children[imgLvl].appendChild(iframe);
 						} else {
-							children[imgLvl+1].style.backgroundImage = "url('/static/img/uploaded/"+ data[artLvl]["image"][imgLvl]["title"] +"')";
+							children[imgLvl].style.backgroundImage = "url('/static/img/uploaded/"+ data[artLvl]["image"][imgLvl]["title"] +"')";
 						}
 					}
 				});
