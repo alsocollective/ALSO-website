@@ -254,6 +254,11 @@ article{
 	color: #fff;
 }
 
+#awards ul {
+	margin: 0;
+	padding: 0 0 0 1.5em;
+}
+
 #comrades ul {
 	margin: 0;
 	padding: 0 0 0 1.5em;
